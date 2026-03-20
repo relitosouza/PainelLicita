@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Portal de Licitações - Painel de Licitações Ativas</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-fixed-dim": "#c7d5ed",
+              "primary-container": "#dae2ff",
+              "on-tertiary-fixed": "#3f3a54",
+              "on-tertiary-container": "#524c68",
+              "surface-container-highest": "#d9e4ea",
+              "on-surface": "#2a3439",
+              "surface-variant": "#d9e4ea",
+              "surface-dim": "#cfdce3",
+              "primary": "#0052CC",
+              "on-tertiary-fixed-variant": "#5c5672",
+              "inverse-on-surface": "#9a9d9f",
+              "primary-fixed-dim": "#c6d3ff",
+              "inverse-primary": "#5c8bff",
+              "outline": "#717c82",
+              "secondary-dim": "#465468",
+              "error-container": "#fe8983",
+              "surface-container": "#e8eff3",
+              "on-primary-container": "#004ab9",
+              "on-error": "#fff7f6",
+              "error-dim": "#4e0309",
+              "inverse-surface": "#0b0f10",
+              "secondary-fixed": "#d5e3fc",
+              "on-primary-fixed": "#003993",
+              "on-secondary-fixed": "#324053",
+              "on-error-container": "#752121",
+              "on-primary-fixed-variant": "#0253cd",
+              "on-tertiary": "#fcf7ff",
+              "primary-dim": "#0041a3",
+              "tertiary-dim": "#554f6b",
+              "surface-container-low": "#f0f4f7",
+              "surface": "#f7f9fb",
+              "on-surface-variant": "#566166",
+              "primary-fixed": "#dae2ff",
+              "error": "#9f403d",
+              "tertiary": "#615b77",
+              "on-primary": "#f8f7ff",
+              "surface-bright": "#f7f9fb",
+              "secondary-container": "#d5e3fc",
+              "tertiary-container": "#e3dbfd",
+              "on-secondary-fixed-variant": "#4e5c71",
+              "on-secondary-container": "#455367",
+              "surface-tint": "#0052CC",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-high": "#e1e9ee",
+              "background": "#f7f9fb",
+              "secondary": "#526074",
+              "tertiary-fixed": "#e3dbfd",
+              "on-secondary": "#f8f8ff",
+              "tertiary-fixed-dim": "#d5cdee",
+              "on-background": "#2a3439",
+              "outline-variant": "#a9b4b9"
+            },
+            fontFamily: {
+              "headline": ["Public Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; }
+        .glass-header { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.8); }
+        .tonal-rail { border-left: 2px solid #e8eff3; }
+        .tonal-rail-active { border-left: 2px solid #0052CC; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface overflow-x-hidden">
+<!-- SideNavBar (Authority Source) - Collapsed Version -->
+<aside class="fixed left-0 top-0 h-screen w-20 bg-slate-50 dark:bg-slate-950 flex flex-col p-4 z-50 transition-all duration-300">
+<div class="mb-10 flex justify-center">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-on-primary shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined" data-icon="gavel" style="">gavel</span>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center justify-center w-12 h-12 mx-auto text-slate-600 dark:text-slate-400 hover:text-primary hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl transition-all duration-300" href="#" title="Painel">
+<span class="material-symbols-outlined" data-icon="dashboard" style="">dashboard</span>
+</a>
+<a class="flex items-center justify-center w-12 h-12 mx-auto bg-white dark:bg-slate-900 text-primary rounded-xl shadow-md transition-all duration-300 border border-slate-100 dark:border-slate-800" href="#" title="Licitações">
+<span class="material-symbols-outlined" data-icon="gavel" style="">gavel</span>
+</a>
+<a class="flex items-center justify-center w-12 h-12 mx-auto text-slate-600 dark:text-slate-400 hover:text-primary hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl transition-all duration-300" href="#" title="Contratos">
+<span class="material-symbols-outlined" data-icon="description" style="">description</span>
+</a>
+<a class="flex items-center justify-center w-12 h-12 mx-auto text-slate-600 dark:text-slate-400 hover:text-primary hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl transition-all duration-300" href="#" title="Auditoria">
+<span class="material-symbols-outlined" data-icon="verified_user" style="">verified_user</span>
+</a>
+<a class="flex items-center justify-center w-12 h-12 mx-auto text-slate-600 dark:text-slate-400 hover:text-primary hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl transition-all duration-300" href="#" title="Configurações">
+<span class="material-symbols-outlined" data-icon="settings" style="">settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 space-y-2 border-t border-slate-200 dark:border-slate-800">
+<a class="flex items-center justify-center w-12 h-12 mx-auto text-slate-600 dark:text-slate-400 hover:text-primary transition-all duration-300" href="#" title="Suporte">
+<span class="material-symbols-outlined" data-icon="support_agent" style="">support_agent</span>
+</a>
+<a class="flex items-center justify-center w-12 h-12 mx-auto text-slate-600 dark:text-slate-400 hover:text-error transition-all duration-300" href="#" title="Sair">
+<span class="material-symbols-outlined" data-icon="logout" style="">logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<main class="ml-20 min-h-screen transition-all duration-300">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-8 py-3 w-full bg-white dark:bg-slate-900 sticky top-0 z-40 border-b border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-6">
+<h2 class="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-100 font-headline" style="">Portal de Licitações</h2>
+<div class="relative group">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400 text-lg" data-icon="search" style="">search</span>
+<input class="bg-surface-container-low border-none rounded-lg pl-10 pr-4 py-2 text-sm w-80 focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Buscar edital, objeto ou ID..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors" style="">
+<span class="material-symbols-outlined" data-icon="notifications" style="">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors" style="">
+<span class="material-symbols-outlined" data-icon="help_outline" style="">help_outline</span>
+</button>
+<div class="h-8 w-[1px] bg-slate-200 mx-2"></div>
+<button class="bg-primary hover:bg-primary-dim text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition-all flex items-center gap-2 shadow-lg shadow-primary/20" style="">
+<span class="material-symbols-outlined text-sm" data-icon="add" style="">add</span>
+                    Novo Edital
+                </button>
+</div>
+</header>
+<!-- Canvas Content -->
+<div class="p-8 max-w-[1600px] mx-auto">
+<!-- Hero / Welcome Section -->
+<div class="mb-10 flex justify-between items-end">
+<div>
+<nav class="flex text-xs font-medium text-outline mb-2 gap-2 items-center">
+<span class="" style="">Dashboard</span>
+<span class="material-symbols-outlined text-[10px]" data-icon="chevron_right" style="">chevron_right</span>
+<span class="text-primary font-bold" style="">Licitações Ativas</span>
+</nav>
+<h1 class="text-4xl font-extrabold text-on-surface font-headline tracking-tight" style="">Painel de Licitações Ativas</h1>
+<p class="text-on-surface-variant mt-2 max-w-2xl" style="">Acompanhamento em tempo real dos processos licitatórios abertos, suspensos e em fase de análise técnica.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2.5 bg-surface-container-high text-on-surface rounded-xl text-sm font-semibold hover:bg-surface-container-highest transition-colors" style="">
+<span class="material-symbols-outlined text-lg" data-icon="filter_list" style="">filter_list</span>
+                        Filtros Avançados
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2.5 bg-surface-container-high text-on-surface rounded-xl text-sm font-semibold hover:bg-surface-container-highest transition-colors" style="">
+<span class="material-symbols-outlined text-lg" data-icon="download" style="">download</span>
+                        Exportar Relatório
+                    </button>
+</div>
+</div>
+<!-- Dashboard Layout (Asymmetric Grid) -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Main Listing Column -->
+<div class="col-span-12 xl:col-span-9 space-y-6">
+<!-- Quick Filters Strip -->
+<div class="flex gap-4 overflow-x-auto no-scrollbar pb-2">
+<button class="px-6 py-2 bg-primary text-on-primary rounded-full text-sm font-bold whitespace-nowrap shadow-md shadow-primary/10" style="">Todas Licitações (42)</button>
+<button class="px-6 py-2 bg-secondary-container text-on-secondary-container rounded-full text-sm font-medium whitespace-nowrap hover:bg-secondary-fixed-dim transition-colors" style="">Educação (SED)</button>
+<button class="px-6 py-2 bg-secondary-container text-on-secondary-container rounded-full text-sm font-medium whitespace-nowrap hover:bg-secondary-fixed-dim transition-colors" style="">Obras (PMO)</button>
+<button class="px-6 py-2 bg-secondary-container text-on-secondary-container rounded-full text-sm font-medium whitespace-nowrap hover:bg-secondary-fixed-dim transition-colors" style="">Saúde (SMS)</button>
+<button class="px-6 py-2 bg-secondary-container text-on-secondary-container rounded-full text-sm font-medium whitespace-nowrap hover:bg-secondary-fixed-dim transition-colors" style="">Administração (SMA)</button>
+</div>
+<!-- Data Table Content -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm ring-1 ring-outline-variant/10">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50 border-b border-outline-variant/10">
+<th class="px-6 py-4 text-[11px] font-bold text-on-surface-variant tracking-wider uppercase font-label" style="">PE (ID)</th>
+<th class="px-6 py-4 text-[11px] font-bold text-on-surface-variant tracking-wider uppercase font-label" style="">Pregoeiro(a)</th>
+<th class="px-6 py-4 text-[11px] font-bold text-on-surface-variant tracking-wider uppercase font-label" style="">Objeto</th>
+<th class="px-6 py-4 text-[11px] font-bold text-on-surface-variant tracking-wider uppercase font-label" style="">Re/Abertura</th>
+<th class="px-6 py-4 text-[11px] font-bold text-on-surface-variant tracking-wider uppercase font-label" style="">Status</th>
+<th class="px-6 py-4 text-right" style=""></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/5">
+<!-- Row 1 -->
+<tr class="group hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-5" style="">
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold text-primary" style="">90.004/2026</span>
+</div>
+</td>
+<td class="px-6 py-5" style="">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 bg-primary-fixed-dim rounded-full flex items-center justify-center text-[10px] font-bold text-on-primary-fixed" style="">MA</div>
+<span class="text-sm font-medium" style="">MARIANA</span>
+</div>
+</td>
+<td class="px-6 py-5" style="">
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-on-surface" style="">UTENSÍLIOS DOMÉSTICOS</span>
+<span class="text-[10px] font-bold text-outline uppercase tracking-tight" style="">Secretaria de Obras (PMO)</span>
+</div>
+</td>
+<td class="px-6 py-5" style="">
+<div class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined text-outline text-lg" data-icon="calendar_today" style="">calendar_today</span>
+<span class="font-medium" style="">19/03/2026 10H</span>
+</div>
+</td>
+<td class="px-6 py-5" style="">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-primary-container text-on-primary-container" style="">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mr-2"></span>
+                                            ABERTO
+                                        </span>
+</td>
+<td class="px-6 py-5 text-right" style="">
+<button class="p-2 hover:bg-surface-container-high rounded-lg transition-colors opacity-0 group-hover:opacity-100" style="">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="visibility" style="">visibility</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="group hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-5" style="">
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold text-primary" style="">90.005/2026</span>
+</div>
+</td>
+<td class="px-6 py-5" style="">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 bg-tertiary-fixed-dim rounded-full flex items-center justify-center text-[10px] font-bold text-on-tertiary-fixed" style="">TH</div>
+<span class="text-sm font-medium" style="">THAIS</span>
+</div>
+</td>
+<td class="px-6 py-5" style="">
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-on-surface" style="">PLAYGROUND INFANTIL</span>
+<span class="text-[10px] font-bold text-outline uppercase tracking-tight" style="">Secretaria de Educação (SED)</span>
+</div>
+</td>
+<td class="px-6 py-5" style="">
+<div class="flex flex-col">
+<span class="text-xs font-bold text-error line-through decoration-2" style="">02/02/2026</span>
+<span class="text-[10px] text-on-surface-variant font-medium" style="">SUSPENSO TEMPORARIAMENTE</span>
+</div>
+</td>
+<td class="px-6 py-5" style="">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-error-container text-on-error-container" style="">
+<span class="w-1.5 h-1.5 rounded-full bg-error mr-2"></span>
+                                            SUSPENSO
+                                        </span>
+</td>
+<td class="px-6 py-5 text-right" style="">
+<button class="p-2 hover:bg-surface-container-high rounded-lg transition-colors opacity-0 group-hover:opacity-100" style="">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="visibility" style="">visibility</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="group hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-5" style="">
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold text-primary" style="">90.006/2026</span>
+</div>
+</td>
+<td class="px-6 py-5" style="">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 bg-secondary-fixed-dim rounded-full flex items-center justify-center text-[10px] font-bold text-on-secondary-fixed" style="">LU</div>
+<span class="text-sm font-medium" style="">LUCIANA</span>
+</div>
+</td>
+<td class="px-6 py-5" style="">
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-on-surface" style="">MATERIAL DE LIMPEZA</span>
+<span class="text-[10px] font-bold text-outline uppercase tracking-tight" style="">Suprimentos Gerais</span>
+</div>
+</td>
+<td class="px-6 py-5" style="">
+<div class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined text-outline text-lg" data-icon="history" style="">history</span>
+<span class="font-medium" style="">30/03/2026 10H</span>
+</div>
+</td>
+<td class="px-6 py-5" style="">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-tertiary-container text-on-tertiary-container" style="">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary mr-2"></span>
+                                            EM ANÁLISE
+                                        </span>
+</td>
+<td class="px-6 py-5 text-right" style="">
+<button class="p-2 hover:bg-surface-container-high rounded-lg transition-colors opacity-0 group-hover:opacity-100" style="">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="visibility" style="">visibility</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="group hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-5" style="">
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold text-primary" style="">90.008/2026</span>
+</div>
+</td>
+<td class="px-6 py-5" style="">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 bg-primary-fixed-dim rounded-full flex items-center justify-center text-[10px] font-bold text-on-primary-fixed" style="">MA</div>
+<span class="text-sm font-medium" style="">MARIANA</span>
+</div>
+</td>
+<td class="px-6 py-5" style="">
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-on-surface" style="">AQUISIÇÃO DE GÁS</span>
+</div>
+</td>
+<td class="px-6 py-5" style="">
+<div class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined text-outline text-lg" data-icon="event" style="">event</span>
+<span class="font-medium" style="">12/04/2026 09H</span>
+</div>
+</td>
+<td class="px-6 py-5" style="">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-primary-container text-on-primary-container" style="">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mr-2"></span>
+                                            ABERTO
+                                        </span>
+</td>
+<td class="px-6 py-5 text-right" style="">
+<button class="p-2 hover:bg-surface-container-high rounded-lg transition-colors opacity-0 group-hover:opacity-100" style="">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="visibility" style="">visibility</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination -->
+<div class="px-6 py-4 bg-surface-container-low/30 border-t border-outline-variant/10 flex justify-between items-center">
+<span class="text-xs font-medium text-on-surface-variant italic" style="">Mostrando 4 de 42 processos ativos</span>
+<div class="flex gap-2">
+<button class="p-1.5 rounded-md hover:bg-surface-container-high disabled:opacity-30" disabled="" style="">
+<span class="material-symbols-outlined text-lg" data-icon="chevron_left" style="">chevron_left</span>
+</button>
+<button class="px-3 py-1 bg-primary text-on-primary rounded-md text-xs font-bold" style="">1</button>
+<button class="px-3 py-1 hover:bg-surface-container-high rounded-md text-xs font-medium" style="">2</button>
+<button class="px-3 py-1 hover:bg-surface-container-high rounded-md text-xs font-medium" style="">3</button>
+<button class="p-1.5 rounded-md hover:bg-surface-container-high" style="">
+<span class="material-symbols-outlined text-lg" data-icon="chevron_right" style="">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Statistics Strip -->
+<div class="grid grid-cols-3 gap-6">
+<div class="bg-primary text-on-primary p-6 rounded-2xl shadow-lg shadow-primary/20 flex justify-between items-start">
+<div>
+<p class="text-xs font-bold uppercase tracking-wider opacity-80 mb-1" style="">Volume Estimado</p>
+<h3 class="text-2xl font-black" style="">R$ 14.2M</h3>
+</div>
+<span class="material-symbols-outlined text-3xl opacity-40" data-icon="payments" style="">payments</span>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm ring-1 ring-outline-variant/10 flex justify-between items-start border border-slate-100">
+<div>
+<p class="text-xs font-bold text-outline uppercase tracking-wider mb-1" style="">Empresas Interessadas</p>
+<h3 class="text-2xl font-black text-on-surface" style="">158</h3>
+</div>
+<span class="material-symbols-outlined text-3xl text-outline-variant" data-icon="groups" style="">groups</span>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm ring-1 ring-outline-variant/10 flex justify-between items-start border border-slate-100">
+<div>
+<p class="text-xs font-bold text-outline uppercase tracking-wider mb-1" style="">Tempo Médio Conclusão</p>
+<h3 class="text-2xl font-black text-on-surface" style="">45 Dias</h3>
+</div>
+<span class="material-symbols-outlined text-3xl text-outline-variant" data-icon="avg_time" style="">avg_time</span>
+</div>
+</div>
+</div>
+<!-- Side Sidebar (Notices & Milestones) -->
+<div class="col-span-12 xl:col-span-3 space-y-8">
+<!-- Próximos Marcos Section -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm ring-1 ring-outline-variant/10 border border-slate-100">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-sm font-black text-on-surface font-headline uppercase" style="">Próximos Marcos</h3>
+<span class="material-symbols-outlined text-primary text-xl" data-icon="event_note" style="">event_note</span>
+</div>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<div class="w-2.5 h-2.5 rounded-full bg-primary mt-1.5"></div>
+<div class="w-[2px] h-full bg-surface-container-high my-1"></div>
+</div>
+<div class="pb-1">
+<p class="text-[10px] font-bold text-primary uppercase" style="">Hoje, 14:00</p>
+<p class="text-sm font-bold text-on-surface" style="">Abertura Propostas PE 90.003</p>
+<p class="text-xs text-on-surface-variant mt-1 italic" style="">Sala Virtual 04 - Disponível</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<div class="w-2.5 h-2.5 rounded-full bg-outline-variant mt-1.5"></div>
+<div class="w-[2px] h-full bg-surface-container-high my-1"></div>
+</div>
+<div class="pb-1">
+<p class="text-[10px] font-bold text-outline uppercase" style="">Amanhã, 09:00</p>
+<p class="text-sm font-medium text-on-surface-variant" style="">Análise Técnica PE 89.012</p>
+<p class="text-xs text-on-surface-variant/70 mt-1 italic" style="">Setor de Suprimentos</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<div class="w-2.5 h-2.5 rounded-full bg-outline-variant mt-1.5"></div>
+</div>
+<div class="pb-1">
+<p class="text-[10px] font-bold text-outline uppercase" style="">12 de Março</p>
+<p class="text-sm font-medium text-on-surface-variant" style="">Limite para Impugnações</p>
+<p class="text-xs text-on-surface-variant/70 mt-1 italic" style="">Edital 91.001 (Pré-publicação)</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Nova Política Alert -->
+<div class="relative overflow-hidden bg-slate-900 text-surface rounded-2xl p-6 shadow-xl">
+<div class="absolute top-0 right-0 -mr-4 -mt-4 w-24 h-24 bg-primary/20 rounded-full blur-2xl"></div>
+<div class="relative z-10">
+<span class="inline-block px-2 py-0.5 bg-primary rounded text-[10px] font-black tracking-widest uppercase mb-3" style="">URGENTE</span>
+<h4 class="text-lg font-bold font-headline leading-tight mb-2" style="">Nova Lei de Licitações: Atualização de Normativa</h4>
+<p class="text-xs text-surface/70 leading-relaxed mb-4" style="">A partir do próximo mês, novos critérios de sustentabilidade serão obrigatórios em todos os editais de infraestrutura.</p>
+<a class="inline-flex items-center text-xs font-bold text-primary hover:text-white transition-colors group" href="#" style="">
+                                Ler documento completo
+                                <span class="material-symbols-outlined text-sm ml-1 group-hover:translate-x-1 transition-transform" data-icon="arrow_forward" style="">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Audit Trail Micro-List -->
+<div class="bg-surface-container p-6 rounded-2xl">
+<h3 class="text-[10px] font-black text-on-surface-variant uppercase tracking-widest mb-4" style="">Log de Atividades Recentes</h3>
+<div class="space-y-4">
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="edit" style="">edit</span>
+<div>
+<p class="text-xs font-medium text-on-surface" style="">Edital 90.005 suspenso por Luciana</p>
+<p class="text-[9px] text-outline mt-0.5" style="">HÁ 12 MINUTOS</p>
+</div>
+</div>
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="upload_file" style="">upload_file</span>
+<div>
+<p class="text-xs font-medium text-on-surface" style="">Novo anexo inserido no PE 90.004</p>
+<p class="text-[9px] text-outline mt-0.5" style="">HÁ 45 MINUTOS</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual Floating Action Button -->
+<div class="fixed bottom-8 right-8 z-50">
+<button class="w-14 h-14 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform group" style="">
+<span class="material-symbols-outlined text-2xl" data-icon="chat_bubble" style="">chat_bubble</span>
+<span class="absolute right-full mr-4 bg-slate-900 text-white text-xs font-bold px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none" style="">Assistente de Auditoria</span>
+</button>
+</div>
+</body></html>
