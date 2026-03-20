@@ -1,11 +1,12 @@
-<!DOCTYPE html><html lang="pt-BR"><head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>CENTRO DE COMANDO: PREGÕES</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -48,12 +49,12 @@
               "tertiary": "#615b77",
               "primary-dim": "#004aba",
               "error-dim": "#4e0309",
-              "background": "#f7f9fb",
+              "background": "#e2e8f0", /* Updated to a darker bluish gray */
               "tertiary-dim": "#554f6b",
               "surface-container-lowest": "#ffffff",
               "error": "#9f403d",
               "outline": "#717c82",
-              "surface": "#f7f9fb",
+              "surface": "#e2e8f0", /* Updated to match background */
               "primary-fixed": "#dae2ff",
               "primary": "#0c56d0",
               "secondary-dim": "#465468",
@@ -81,6 +82,7 @@
         body {
             font-family: 'Inter', sans-serif;
             overflow: hidden; /* TV interfaces should fit perfectly */
+            background-color: #e2e8f0; /* Darker bluish gray for contrast */
         }
         .tv-grid {
             display: grid;
@@ -91,32 +93,32 @@
         }
         .glass-header {
             backdrop-filter: blur(10px);
-            background: rgba(247, 249, 251, 0.8);
+            background: rgba(255, 255, 255, 0.9);
         }
     </style>
 </head>
-<body class="bg-surface text-on-surface">
+<body class="bg-[#e2e8f0] text-on-surface">
 <!-- TopNavBar Shell -->
-<header class="sticky top-0 z-50 flex justify-between items-center w-full px-8 py-4 bg-[#f7f9fb] dark:bg-slate-900 border-b border-surface-container">
+<header class="sticky top-0 z-50 flex justify-between items-center w-full px-8 py-4 bg-white/90 backdrop-blur-md border-b border-outline-variant/20 shadow-sm">
 <div class="flex items-center gap-4">
-<span class="text-xl font-black text-[#0c56d0] dark:text-blue-400 uppercase tracking-widest font-headline" style="">prefeiura municipal de osasco</span>
+<span class="text-xl font-black text-[#0c56d0] uppercase tracking-widest font-headline">prefeitura municipal de osasco</span>
 <div class="h-6 w-px bg-outline-variant opacity-30 mx-2"></div>
-<h1 class="font-headline font-bold text-lg text-on-surface tracking-tight" style="">Central de Licitações - Painel de Monitoramento</h1>
+<h1 class="font-headline font-bold text-lg text-on-surface tracking-tight">Central de Licitações - Painel de Monitoramento</h1>
 </div>
 <div class="flex items-center gap-6">
 <div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-outline" data-icon="monitor_heart" style="">monitor_heart</span>
-<span class="material-symbols-outlined text-outline" data-icon="settings" style="">settings</span>
+<span class="material-symbols-outlined text-outline" data-icon="monitor_heart">monitor_heart</span>
+<span class="material-symbols-outlined text-outline" data-icon="settings">settings</span>
 <div class="relative">
-<span class="material-symbols-outlined text-outline" data-icon="notifications" style="">notifications</span>
+<span class="material-symbols-outlined text-outline" data-icon="notifications">notifications</span>
 <span class="absolute -top-1 -right-1 w-2 h-2 bg-error rounded-full"></span>
 </div>
 </div>
 <div class="flex items-center gap-3 bg-surface-container-low px-4 py-2 rounded-full">
-<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary font-bold text-xs" style="">CC</div>
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary font-bold text-xs">CC</div>
 <div class="text-xs font-semibold">
-<div class="text-on-surface" style="">SISTEMA ATIVO</div>
-<div class="text-outline text-[10px] uppercase" style="">16/03/2026 09:42</div>
+<div class="text-on-surface">SISTEMA ATIVO</div>
+<div class="text-outline text-[10px] uppercase">16/03/2026 09:42</div>
 </div>
 </div>
 </div>
@@ -125,337 +127,337 @@
 <main class="p-8">
 <div class="tv-grid">
 <!-- Card 1 -->
-<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-5 flex flex-col justify-between hover:bg-surface-container-low transition-all">
+<div class="bg-white rounded-xl border border-outline-variant/30 p-5 flex flex-col justify-between hover:shadow-lg transition-all shadow-sm">
 <div>
 <div class="flex justify-between items-start mb-2">
-<span class="text-primary font-headline font-bold text-sm tracking-tight" style="">90.011/2026</span>
-<span class="material-symbols-outlined text-outline text-lg" data-icon="inventory_2" style="">inventory_2</span>
+<span class="text-primary font-headline font-bold text-sm tracking-tight">90.011/2026</span>
+<span class="material-symbols-outlined text-outline text-lg" data-icon="inventory_2">inventory_2</span>
 </div>
-<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1" style="">ARTIGOS FUNERÁRIOS</h3>
-<p class="text-on-surface-variant text-xs font-medium" style="">RESPONSÁVEL: <span class="text-on-surface" style="">THAIS</span></p>
+<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1">ARTIGOS FUNERÁRIOS</h3>
+<p class="text-on-surface-variant text-xs font-medium">RESPONSÁVEL: <span class="text-on-surface">THAIS</span></p>
 </div>
 <div class="mt-4 pt-4 border-t border-surface-container flex justify-between items-center">
 <div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today" style="">calendar_today</span>
-<span class="text-xs font-bold text-on-surface" style="">25/03/2026</span>
+<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today">calendar_today</span>
+<span class="text-xs font-bold text-on-surface">25/03/2026</span>
 </div>
-<div class="bg-primary-container text-on-primary-container text-[10px] font-bold px-2 py-1 rounded" style="">10H</div>
+<div class="bg-primary-container text-on-primary-container text-[10px] font-bold px-2 py-1 rounded">10H</div>
 </div>
 </div>
 <!-- Card 2 -->
-<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-5 flex flex-col justify-between hover:bg-surface-container-low transition-all">
+<div class="bg-white rounded-xl border border-outline-variant/30 p-5 flex flex-col justify-between hover:shadow-lg transition-all shadow-sm">
 <div>
 <div class="flex justify-between items-start mb-2">
-<span class="text-primary font-headline font-bold text-sm tracking-tight" style="">90.012/2026</span>
-<span class="material-symbols-outlined text-outline text-lg" data-icon="shield" style="">shield</span>
+<span class="text-primary font-headline font-bold text-sm tracking-tight">90.012/2026</span>
+<span class="material-symbols-outlined text-outline text-lg" data-icon="shield">shield</span>
 </div>
-<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1" style="">SEGURANÇA DESARMADA</h3>
-<p class="text-on-surface-variant text-xs font-medium" style="">RESPONSÁVEL: <span class="text-on-surface" style="">LUCIANA</span></p>
+<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1">SEGURANÇA DESARMADA</h3>
+<p class="text-on-surface-variant text-xs font-medium">RESPONSÁVEL: <span class="text-on-surface">LUCIANA</span></p>
 </div>
 <div class="mt-4 pt-4 border-t border-surface-container flex justify-between items-center">
 <div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today" style="">calendar_today</span>
-<span class="text-xs font-bold text-on-surface" style="">23/03/2026</span>
+<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today">calendar_today</span>
+<span class="text-xs font-bold text-on-surface">23/03/2026</span>
 </div>
-<div class="bg-primary-container text-on-primary-container text-[10px] font-bold px-2 py-1 rounded" style="">10H</div>
+<div class="bg-primary-container text-on-primary-container text-[10px] font-bold px-2 py-1 rounded">10H</div>
 </div>
 </div>
 <!-- Card 3 -->
-<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-5 flex flex-col justify-between hover:bg-surface-container-low transition-all">
+<div class="bg-white rounded-xl border border-outline-variant/30 p-5 flex flex-col justify-between hover:shadow-lg transition-all shadow-sm">
 <div>
 <div class="flex justify-between items-start mb-2">
-<span class="text-primary font-headline font-bold text-sm tracking-tight" style="">90.013/2026</span>
-<span class="material-symbols-outlined text-outline text-lg" data-icon="shopping_bag" style="">shopping_bag</span>
+<span class="text-primary font-headline font-bold text-sm tracking-tight">90.013/2026</span>
+<span class="material-symbols-outlined text-outline text-lg" data-icon="shopping_bag">shopping_bag</span>
 </div>
-<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1" style="">SACOLAS PLÁSTICAS (PMO)</h3>
-<p class="text-on-surface-variant text-xs font-medium" style="">RESPONSÁVEL: <span class="text-on-surface" style="">MARIANA</span></p>
+<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1">SACOLAS PLÁSTICAS (PMO)</h3>
+<p class="text-on-surface-variant text-xs font-medium">RESPONSÁVEL: <span class="text-on-surface">MARIANA</span></p>
 </div>
 <div class="mt-4 pt-4 border-t border-surface-container flex justify-between items-center">
 <div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today" style="">calendar_today</span>
-<span class="text-xs font-bold text-on-surface" style="">23/03/2026</span>
+<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today">calendar_today</span>
+<span class="text-xs font-bold text-on-surface">23/03/2026</span>
 </div>
-<div class="bg-primary-container text-on-primary-container text-[10px] font-bold px-2 py-1 rounded" style="">10H</div>
+<div class="bg-primary-container text-on-primary-container text-[10px] font-bold px-2 py-1 rounded">10H</div>
 </div>
 </div>
 <!-- Card 4 -->
-<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-5 flex flex-col justify-between hover:bg-surface-container-low transition-all">
+<div class="bg-white rounded-xl border border-outline-variant/30 p-5 flex flex-col justify-between hover:shadow-lg transition-all shadow-sm">
 <div>
 <div class="flex justify-between items-start mb-2">
-<span class="text-primary font-headline font-bold text-sm tracking-tight" style="">90.014/2026</span>
-<span class="material-symbols-outlined text-outline text-lg" data-icon="apparel" style="">apparel</span>
+<span class="text-primary font-headline font-bold text-sm tracking-tight">90.014/2026</span>
+<span class="material-symbols-outlined text-outline text-lg" data-icon="apparel">apparel</span>
 </div>
-<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1" style="">UNIFORMES COMDEC</h3>
-<p class="text-on-surface-variant text-xs font-medium" style="">RESPONSÁVEL: <span class="text-on-surface" style="">DAIANA</span></p>
+<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1">UNIFORMES COMDEC</h3>
+<p class="text-on-surface-variant text-xs font-medium">RESPONSÁVEL: <span class="text-on-surface">DAIANA</span></p>
 </div>
 <div class="mt-4 pt-4 border-t border-surface-container flex justify-between items-center">
 <div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today" style="">calendar_today</span>
-<span class="text-xs font-bold text-on-surface" style="">24/03/2026</span>
+<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today">calendar_today</span>
+<span class="text-xs font-bold text-on-surface">24/03/2026</span>
 </div>
-<div class="bg-primary-container text-on-primary-container text-[10px] font-bold px-2 py-1 rounded" style="">10H</div>
+<div class="bg-primary-container text-on-primary-container text-[10px] font-bold px-2 py-1 rounded">10H</div>
 </div>
 </div>
 <!-- Card 5 -->
-<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-5 flex flex-col justify-between hover:bg-surface-container-low transition-all">
+<div class="bg-white rounded-xl border border-outline-variant/30 p-5 flex flex-col justify-between hover:shadow-lg transition-all shadow-sm">
 <div>
 <div class="flex justify-between items-start mb-2">
-<span class="text-primary font-headline font-bold text-sm tracking-tight" style="">90.015/2026</span>
-<span class="material-symbols-outlined text-outline text-lg" data-icon="settings_suggest" style="">settings_suggest</span>
+<span class="text-primary font-headline font-bold text-sm tracking-tight">90.015/2026</span>
+<span class="material-symbols-outlined text-outline text-lg" data-icon="settings_suggest">settings_suggest</span>
 </div>
-<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1" style="">MANUTENÇÃO DATA CENTER</h3>
-<p class="text-on-surface-variant text-xs font-medium" style="">RESPONSÁVEL: <span class="text-on-surface" style="">MARIANA</span></p>
+<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1">MANUTENÇÃO DATA CENTER</h3>
+<p class="text-on-surface-variant text-xs font-medium">RESPONSÁVEL: <span class="text-on-surface">MARIANA</span></p>
 </div>
 <div class="mt-4 pt-4 border-t border-surface-container flex justify-between items-center">
 <div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today" style="">calendar_today</span>
-<span class="text-xs font-bold text-on-surface" style="">26/03/2026</span>
+<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today">calendar_today</span>
+<span class="text-xs font-bold text-on-surface">26/03/2026</span>
 </div>
-<div class="bg-primary-container text-on-primary-container text-[10px] font-bold px-2 py-1 rounded" style="">10H</div>
+<div class="bg-primary-container text-on-primary-container text-[10px] font-bold px-2 py-1 rounded">10H</div>
 </div>
 </div>
 <!-- Card 6 -->
-<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-5 flex flex-col justify-between hover:bg-surface-container-low transition-all">
+<div class="bg-white rounded-xl border border-outline-variant/30 p-5 flex flex-col justify-between hover:shadow-lg transition-all shadow-sm">
 <div>
 <div class="flex justify-between items-start mb-2">
-<span class="text-primary font-headline font-bold text-sm tracking-tight" style="">90.017/2026</span>
-<span class="material-symbols-outlined text-outline text-lg" data-icon="box" style="">box</span>
+<span class="text-primary font-headline font-bold text-sm tracking-tight">90.017/2026</span>
+<span class="material-symbols-outlined text-outline text-lg" data-icon="box">box</span>
 </div>
-<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1" style="">URNAS MORTUARIAS (SSO)</h3>
-<p class="text-on-surface-variant text-xs font-medium" style="">RESPONSÁVEL: <span class="text-on-surface" style="">MARCELO</span></p>
+<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1">URNAS MORTUARIAS (SSO)</h3>
+<p class="text-on-surface-variant text-xs font-medium">RESPONSÁVEL: <span class="text-on-surface">MARCELO</span></p>
 </div>
 <div class="mt-4 pt-4 border-t border-surface-container flex justify-between items-center">
 <div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today" style="">calendar_today</span>
-<span class="text-xs font-bold text-on-surface" style="">30/03/2026</span>
+<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today">calendar_today</span>
+<span class="text-xs font-bold text-on-surface">30/03/2026</span>
 </div>
-<div class="bg-primary-container text-on-primary-container text-[10px] font-bold px-2 py-1 rounded" style="">10H</div>
+<div class="bg-primary-container text-on-primary-container text-[10px] font-bold px-2 py-1 rounded">10H</div>
 </div>
 </div>
 <!-- Card 7 -->
-<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-5 flex flex-col justify-between hover:bg-surface-container-low transition-all">
+<div class="bg-white rounded-xl border border-outline-variant/30 p-5 flex flex-col justify-between hover:shadow-lg transition-all shadow-sm">
 <div>
 <div class="flex justify-between items-start mb-2">
-<span class="text-primary font-headline font-bold text-sm tracking-tight" style="">90.018/2026</span>
-<span class="material-symbols-outlined text-outline text-lg" data-icon="nutrition" style="">nutrition</span>
+<span class="text-primary font-headline font-bold text-sm tracking-tight">90.018/2026</span>
+<span class="material-symbols-outlined text-outline text-lg" data-icon="nutrition">nutrition</span>
 </div>
-<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1" style="">FRUTAS E VERDURAS(PMO)</h3>
-<p class="text-on-surface-variant text-xs font-medium" style="">RESPONSÁVEL: <span class="text-on-surface" style="">LUCIANA</span></p>
+<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1">FRUTAS E VERDURAS(PMO)</h3>
+<p class="text-on-surface-variant text-xs font-medium">RESPONSÁVEL: <span class="text-on-surface">LUCIANA</span></p>
 </div>
 <div class="mt-4 pt-4 border-t border-surface-container flex justify-between items-center">
 <div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today" style="">calendar_today</span>
-<span class="text-xs font-bold text-on-surface" style="">07/04/2026</span>
+<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today">calendar_today</span>
+<span class="text-xs font-bold text-on-surface">07/04/2026</span>
 </div>
-<div class="bg-primary-container text-on-primary-container text-[10px] font-bold px-2 py-1 rounded" style="">10H</div>
+<div class="bg-primary-container text-on-primary-container text-[10px] font-bold px-2 py-1 rounded">10H</div>
 </div>
 </div>
 <!-- Card 8 -->
-<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-5 flex flex-col justify-between hover:bg-surface-container-low transition-all">
+<div class="bg-white rounded-xl border border-outline-variant/30 p-5 flex flex-col justify-between hover:shadow-lg transition-all shadow-sm">
 <div>
 <div class="flex justify-between items-start mb-2">
-<span class="text-primary font-headline font-bold text-sm tracking-tight" style="">90.019/2026</span>
-<span class="material-symbols-outlined text-outline text-lg" data-icon="shopping_cart" style="">shopping_cart</span>
+<span class="text-primary font-headline font-bold text-sm tracking-tight">90.019/2026</span>
+<span class="material-symbols-outlined text-outline text-lg" data-icon="shopping_cart">shopping_cart</span>
 </div>
-<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1" style="">CESTAS BASICAS</h3>
-<p class="text-on-surface-variant text-xs font-medium" style="">RESPONSÁVEL: <span class="text-on-surface" style="">MARCELO</span></p>
+<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1">CESTAS BASICAS</h3>
+<p class="text-on-surface-variant text-xs font-medium">RESPONSÁVEL: <span class="text-on-surface">MARCELO</span></p>
 </div>
 <div class="mt-4 pt-4 border-t border-surface-container flex justify-between items-center">
 <div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today" style="">calendar_today</span>
-<span class="text-xs font-bold text-on-surface" style="">10/04/2026</span>
+<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today">calendar_today</span>
+<span class="text-xs font-bold text-on-surface">10/04/2026</span>
 </div>
-<div class="bg-primary-container text-on-primary-container text-[10px] font-bold px-2 py-1 rounded" style="">10H</div>
+<div class="bg-primary-container text-on-primary-container text-[10px] font-bold px-2 py-1 rounded">10H</div>
 </div>
 </div>
 <!-- Card 9 -->
-<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-5 flex flex-col justify-between hover:bg-surface-container-low transition-all">
+<div class="bg-white rounded-xl border border-outline-variant/30 p-5 flex flex-col justify-between hover:shadow-lg transition-all shadow-sm">
 <div>
 <div class="flex justify-between items-start mb-2">
-<span class="text-primary font-headline font-bold text-sm tracking-tight" style="">90.004/2026</span>
-<span class="material-symbols-outlined text-outline text-lg" data-icon="flatware" style="">flatware</span>
+<span class="text-primary font-headline font-bold text-sm tracking-tight">90.004/2026</span>
+<span class="material-symbols-outlined text-outline text-lg" data-icon="flatware">flatware</span>
 </div>
-<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1" style="">UTENSÍLIOS DOMÉSTICOS (PMO)</h3>
-<p class="text-on-surface-variant text-xs font-medium" style="">RESPONSÁVEL: <span class="text-on-surface" style="">MARIANA</span></p>
+<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1">UTENSÍLIOS DOMÉSTICOS (PMO)</h3>
+<p class="text-on-surface-variant text-xs font-medium">RESPONSÁVEL: <span class="text-on-surface">MARIANA</span></p>
 </div>
 <div class="mt-4 pt-4 border-t border-surface-container flex justify-between items-center">
 <div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today" style="">calendar_today</span>
-<span class="text-xs font-bold text-on-surface" style="">19/03/2026</span>
+<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today">calendar_today</span>
+<span class="text-xs font-bold text-on-surface">19/03/2026</span>
 </div>
-<div class="bg-primary-container text-on-primary-container text-[10px] font-bold px-2 py-1 rounded" style="">10H</div>
+<div class="bg-primary-container text-on-primary-container text-[10px] font-bold px-2 py-1 rounded">10H</div>
 </div>
 </div>
 <!-- Card 10 (STATUS: SUSPENSO) -->
-<div class="bg-surface-container-lowest rounded-xl border border-error/30 p-5 flex flex-col justify-between hover:bg-error-container/10 transition-all relative overflow-hidden">
+<div class="bg-white rounded-xl border border-error/30 p-5 flex flex-col justify-between hover:shadow-lg transition-all relative overflow-hidden shadow-sm">
 <div class="absolute top-0 right-0 p-1">
-<div class="bg-error text-on-error text-[8px] font-black px-2 py-0.5 rounded-bl-lg uppercase tracking-tighter" style="">ALERTA</div>
+<div class="bg-error text-on-error text-[8px] font-black px-2 py-0.5 rounded-bl-lg uppercase tracking-tighter">ALERTA</div>
 </div>
 <div>
 <div class="flex justify-between items-start mb-2">
-<span class="text-error font-headline font-bold text-sm tracking-tight" style="">90.005/2026</span>
-<span class="material-symbols-outlined text-error text-lg" data-icon="warning" style="">warning</span>
+<span class="text-error font-headline font-bold text-sm tracking-tight">90.005/2026</span>
+<span class="material-symbols-outlined text-error text-lg" data-icon="warning">warning</span>
 </div>
-<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1" style="">PLAYGROUND (SED)</h3>
-<p class="text-on-surface-variant text-xs font-medium" style="">RESPONSÁVEL: <span class="text-on-surface" style="">THAIS</span></p>
-<div class="mt-2 inline-flex items-center px-2 py-1 rounded bg-error-container text-on-error-container text-[10px] font-black uppercase" style="">
+<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1">PLAYGROUND (SED)</h3>
+<p class="text-on-surface-variant text-xs font-medium">RESPONSÁVEL: <span class="text-on-surface">THAIS</span></p>
+<div class="mt-2 inline-flex items-center px-2 py-1 rounded bg-error-container text-on-error-container text-[10px] font-black uppercase">
                         STATUS: SUSPENSO
                     </div>
 </div>
 <div class="mt-4 pt-4 border-t border-surface-container flex justify-between items-center">
 <div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-error text-sm" data-icon="calendar_today" style="">calendar_today</span>
-<span class="text-xs font-bold text-on-surface" style="">02/02/2026</span>
+<span class="material-symbols-outlined text-error text-sm" data-icon="calendar_today">calendar_today</span>
+<span class="text-xs font-bold text-on-surface">02/02/2026</span>
 </div>
 </div>
 </div>
 <!-- Card 11 -->
-<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-5 flex flex-col justify-between hover:bg-surface-container-low transition-all">
+<div class="bg-white rounded-xl border border-outline-variant/30 p-5 flex flex-col justify-between hover:shadow-lg transition-all shadow-sm">
 <div>
 <div class="flex justify-between items-start mb-2">
-<span class="text-primary font-headline font-bold text-sm tracking-tight" style="">90.006/2026</span>
-<span class="material-symbols-outlined text-outline text-lg" data-icon="clean_hands" style="">clean_hands</span>
+<span class="text-primary font-headline font-bold text-sm tracking-tight">90.006/2026</span>
+<span class="material-symbols-outlined text-outline text-lg" data-icon="clean_hands">clean_hands</span>
 </div>
-<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1" style="">MATERIAL DE LIMPEZA</h3>
-<p class="text-on-surface-variant text-xs font-medium" style="">RESPONSÁVEL: <span class="text-on-surface" style="">LUCIANA</span></p>
+<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1">MATERIAL DE LIMPEZA</h3>
+<p class="text-on-surface-variant text-xs font-medium">RESPONSÁVEL: <span class="text-on-surface">LUCIANA</span></p>
 <div class="mt-2 grid grid-cols-2 gap-2">
-<div class="text-[9px] bg-secondary-container p-1 rounded" style="">
-<span class="font-bold opacity-70" style="">LAUDO:</span> 26/03
+<div class="text-[9px] bg-secondary-container/30 p-1 rounded">
+<span class="font-bold opacity-70">LAUDO:</span> 26/03
                         </div>
-<div class="text-[9px] bg-secondary-container p-1 rounded" style="">
-<span class="font-bold opacity-70" style="">ANÁLISE:</span> 27/03
+<div class="text-[9px] bg-secondary-container/30 p-1 rounded">
+<span class="font-bold opacity-70">ANÁLISE:</span> 27/03
                         </div>
 </div>
 </div>
 <div class="mt-4 pt-4 border-t border-surface-container flex justify-between items-center">
 <div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today" style="">calendar_today</span>
-<span class="text-xs font-bold text-on-surface" style="">30/03/2026</span>
+<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today">calendar_today</span>
+<span class="text-xs font-bold text-on-surface">30/03/2026</span>
 </div>
-<div class="bg-primary-container text-on-primary-container text-[10px] font-bold px-2 py-1 rounded" style="">10H</div>
+<div class="bg-primary-container text-on-primary-container text-[10px] font-bold px-2 py-1 rounded">10H</div>
 </div>
 </div>
 <!-- Card 12 -->
-<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-5 flex flex-col justify-between hover:bg-surface-container-low transition-all">
+<div class="bg-white rounded-xl border border-outline-variant/30 p-5 flex flex-col justify-between hover:shadow-lg transition-all shadow-sm">
 <div>
 <div class="flex justify-between items-start mb-2">
-<span class="text-primary font-headline font-bold text-sm tracking-tight" style="">90.008/2026</span>
-<span class="material-symbols-outlined text-outline text-lg" data-icon="propane_tank" style="">propane_tank</span>
+<span class="text-primary font-headline font-bold text-sm tracking-tight">90.008/2026</span>
+<span class="material-symbols-outlined text-outline text-lg" data-icon="propane_tank">propane_tank</span>
 </div>
-<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1" style="">AQUISIÇÃO DE GÁS (PMO)</h3>
-<p class="text-on-surface-variant text-xs font-medium mb-1" style="">RESPONSÁVEL: <span class="text-on-surface" style="">MARIANA</span></p>
-<span class="text-[10px] font-bold text-tertiary-dim border border-tertiary-fixed px-1.5 py-0.5 rounded" style="">STATUS: DECISÃO</span>
+<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1">AQUISIÇÃO DE GÁS (PMO)</h3>
+<p class="text-on-surface-variant text-xs font-medium mb-1">RESPONSÁVEL: <span class="text-on-surface">MARIANA</span></p>
+<span class="text-[10px] font-bold text-tertiary-dim border border-tertiary-fixed px-1.5 py-0.5 rounded">STATUS: DECISÃO</span>
 </div>
 <div class="mt-4 pt-4 border-t border-surface-container flex flex-col gap-2">
 <div class="flex justify-between items-center">
 <div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today" style="">calendar_today</span>
-<span class="text-xs font-bold text-on-surface" style="">08/04/2026</span>
+<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today">calendar_today</span>
+<span class="text-xs font-bold text-on-surface">08/04/2026</span>
 </div>
 <div class="flex gap-2 text-[9px] font-bold text-outline">
-<span class="" style="">R: 16/03</span>
-<span class="" style="">C: 19/03</span>
+<span>R: 16/03</span>
+<span>C: 19/03</span>
 </div>
 </div>
 </div>
 </div>
 <!-- Card 13 -->
-<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-5 flex flex-col justify-between hover:bg-surface-container-low transition-all">
+<div class="bg-white rounded-xl border border-outline-variant/30 p-5 flex flex-col justify-between hover:shadow-lg transition-all shadow-sm">
 <div>
 <div class="flex justify-between items-start mb-2">
-<span class="text-primary font-headline font-bold text-sm tracking-tight" style="">90.010/2026</span>
-<span class="material-symbols-outlined text-outline text-lg" data-icon="medical_services" style="">medical_services</span>
+<span class="text-primary font-headline font-bold text-sm tracking-tight">90.010/2026</span>
+<span class="material-symbols-outlined text-outline text-lg" data-icon="medical_services">medical_services</span>
 </div>
-<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1" style="">MATERIAL HOSPITALAR</h3>
-<p class="text-on-surface-variant text-xs font-medium" style="">RESPONSÁVEL: <span class="text-on-surface" style="">DOMINGOS</span></p>
+<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1">MATERIAL HOSPITALAR</h3>
+<p class="text-on-surface-variant text-xs font-medium">RESPONSÁVEL: <span class="text-on-surface">DOMINGOS</span></p>
 </div>
 <div class="mt-4 pt-4 border-t border-surface-container flex flex-col gap-2">
 <div class="flex justify-between items-center">
 <div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today" style="">calendar_today</span>
-<span class="text-xs font-bold text-on-surface" style="">06/04/2026</span>
+<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today">calendar_today</span>
+<span class="text-xs font-bold text-on-surface">06/04/2026</span>
 </div>
-<span class="text-[10px] font-bold text-on-surface" style="">09H</span>
+<span class="text-[10px] font-bold text-on-surface">09H</span>
 </div>
-<div class="flex gap-2 text-[10px] font-semibold text-outline-variant justify-center bg-surface-container-low py-1 rounded">
-<span class="" style="">R: 16/03</span>
-<span class="opacity-30" style="">|</span>
-<span class="" style="">C: 19/03</span>
+<div class="flex gap-2 text-[10px] font-semibold text-outline-variant justify-center bg-surface-container-low/50 py-1 rounded">
+<span>R: 16/03</span>
+<span class="opacity-30">|</span>
+<span>C: 19/03</span>
 </div>
 </div>
 </div>
 <!-- Card 14 -->
-<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-5 flex flex-col justify-between hover:bg-surface-container-low transition-all">
+<div class="bg-white rounded-xl border border-outline-variant/30 p-5 flex flex-col justify-between hover:shadow-lg transition-all shadow-sm">
 <div>
 <div class="flex justify-between items-start mb-2">
-<span class="text-primary font-headline font-bold text-sm tracking-tight" style="">90.055/2025</span>
-<span class="material-symbols-outlined text-outline text-lg" data-icon="menu_book" style="">menu_book</span>
+<span class="text-primary font-headline font-bold text-sm tracking-tight">90.055/2025</span>
+<span class="material-symbols-outlined text-outline text-lg" data-icon="menu_book">menu_book</span>
 </div>
-<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1" style="">LIVROS PORTUGUÊS / MATEMÁTICA</h3>
-<p class="text-on-surface-variant text-xs font-medium mb-1" style="">RESPONSÁVEL: <span class="text-on-surface" style="">RICARDO</span></p>
-<span class="text-[10px] font-bold text-tertiary-dim border border-tertiary-fixed px-1.5 py-0.5 rounded" style="">STATUS: DECISÃO</span>
+<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1">LIVROS PORTUGUÊS / MATEMÁTICA</h3>
+<p class="text-on-surface-variant text-xs font-medium mb-1">RESPONSÁVEL: <span class="text-on-surface">RICARDO</span></p>
+<span class="text-[10px] font-bold text-tertiary-dim border border-tertiary-fixed px-1.5 py-0.5 rounded">STATUS: DECISÃO</span>
 </div>
 <div class="mt-4 pt-4 border-t border-surface-container">
 <div class="flex justify-between items-center mb-2">
-<span class="text-xs font-bold text-on-surface" style="">16/03/2026</span>
+<span class="text-xs font-bold text-on-surface">16/03/2026</span>
 <div class="flex gap-1">
 <span class="w-2 h-2 rounded-full bg-primary"></span>
-<span class="w-2 h-2 rounded-full bg-surface-dim"></span>
+<span class="w-2 h-2 rounded-full bg-slate-300"></span>
 </div>
 </div>
 <div class="flex justify-around text-[9px] font-bold text-outline-variant">
-<span class="" style="">R: 25/02</span>
-<span class="" style="">C: 02/03</span>
+<span>R: 25/02</span>
+<span>C: 02/03</span>
 </div>
 </div>
 </div>
 <!-- Card 15 -->
-<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-5 flex flex-col justify-between hover:bg-surface-container-low transition-all">
+<div class="bg-white rounded-xl border border-outline-variant/30 p-5 flex flex-col justify-between hover:shadow-lg transition-all shadow-sm">
 <div>
 <div class="flex justify-between items-start mb-2">
-<span class="text-primary font-headline font-bold text-sm tracking-tight" style="">90.098/2025</span>
-<span class="material-symbols-outlined text-outline text-lg" data-icon="checkroom" style="">checkroom</span>
+<span class="text-primary font-headline font-bold text-sm tracking-tight">90.098/2025</span>
+<span class="material-symbols-outlined text-outline text-lg" data-icon="checkroom">checkroom</span>
 </div>
-<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1" style="">UNIFORMES SECONTRU</h3>
-<p class="text-on-surface-variant text-xs font-medium" style="">RESPONSÁVEL: <span class="text-on-surface" style="">THAIS</span></p>
+<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1">UNIFORMES SECONTRU</h3>
+<p class="text-on-surface-variant text-xs font-medium">RESPONSÁVEL: <span class="text-on-surface">THAIS</span></p>
 </div>
 <div class="mt-4 pt-4 border-t border-surface-container flex flex-col gap-2">
 <div class="flex justify-between items-center">
 <div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today" style="">calendar_today</span>
-<span class="text-xs font-bold text-on-surface" style="">13/04/2026</span>
+<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today">calendar_today</span>
+<span class="text-xs font-bold text-on-surface">13/04/2026</span>
 </div>
-<span class="text-[10px] font-bold bg-primary-container text-on-primary-container px-2 py-0.5 rounded" style="">10H</span>
+<span class="text-[10px] font-bold bg-primary-container text-on-primary-container px-2 py-0.5 rounded">10H</span>
 </div>
 <div class="flex justify-between items-center text-[10px] font-bold text-on-secondary-container">
-<span class="bg-secondary-container/50 px-2 py-0.5 rounded" style="">A: 31/03</span>
-<span class="bg-secondary-container/50 px-2 py-0.5 rounded" style="">S: 06/04</span>
+<span class="bg-secondary-container/50 px-2 py-0.5 rounded">A: 31/03</span>
+<span class="bg-secondary-container/50 px-2 py-0.5 rounded">S: 06/04</span>
 </div>
 </div>
 </div>
 <!-- Card 16 (Placeholder) -->
-<div class="bg-surface-container-low/50 rounded-xl border border-dashed border-outline-variant p-5 flex flex-col items-center justify-center text-center">
-<span class="material-symbols-outlined text-outline-variant text-4xl mb-3 opacity-30" data-icon="hourglass_empty" style="">hourglass_empty</span>
-<span class="text-outline-variant font-headline font-bold text-sm uppercase tracking-widest" style="">Aguardando Próximo Pregão</span>
-<span class="text-[10px] text-outline opacity-60 mt-2" style="">Sincronização em tempo real ativa</span>
+<div class="bg-white/40 backdrop-blur-sm rounded-xl border border-dashed border-outline-variant p-5 flex flex-col items-center justify-center text-center shadow-sm">
+<span class="material-symbols-outlined text-outline-variant text-4xl mb-3 opacity-30" data-icon="hourglass_empty">hourglass_empty</span>
+<span class="text-outline-variant font-headline font-bold text-sm uppercase tracking-widest">Aguardando Próximo Pregão</span>
+<span class="text-[10px] text-outline opacity-60 mt-2">Sincronização em tempo real ativa</span>
 </div>
 </div>
 </main>
 <!-- Footer for Command Center Status -->
-<footer class="fixed bottom-0 w-full px-8 py-3 bg-surface-container-highest flex justify-between items-center text-[10px] font-bold text-on-surface-variant border-t border-outline-variant/20">
+<footer class="fixed bottom-0 w-full px-8 py-3 bg-white border-t border-outline-variant/20 flex justify-between items-center text-[10px] font-bold text-on-surface-variant z-50">
 <div class="flex items-center gap-6">
-<div class="flex items-center gap-2" style="">
+<div class="flex items-center gap-2">
 <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
                 SISTEMA OPERACIONAL
             </div>
-<div class="flex items-center gap-2" style="">
-<span class="material-symbols-outlined text-xs" data-icon="cloud_done" style="">cloud_done</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xs" data-icon="cloud_done">cloud_done</span>
                 DADOS ATUALIZADOS
             </div>
 </div>
 <div class="flex items-center gap-4">
-<span class="" style="">TERMINAL: TV-COMMAND-01</span>
-<span class="" style="">LICENÇA INSTITUCIONAL ATIVA</span>
+<span>TERMINAL: TV-COMMAND-01</span>
+<span>LICENÇA INSTITUCIONAL ATIVA</span>
 </div>
 </footer>
 </body></html>
