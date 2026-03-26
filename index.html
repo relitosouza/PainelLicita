@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 
-<html class="h-full" lang="pt-BR"><head>
+<html class="light" lang="pt-BR"><head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>CENTRO DE COMANDO: PREGÕES</title>
+<meta content="width=1920, height=1080, initial-scale=1.0" name="viewport"/>
+<title>Painel de Monitoramento - Prefeitura de Osasco</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
       tailwind.config = {
@@ -13,57 +13,57 @@
         theme: {
           extend: {
             colors: {
-              "on-surface-variant": "#566166",
-              "surface-bright": "#f7f9fb",
-              "inverse-surface": "#0b0f10",
-              "on-secondary-container": "#455367",
-              "tertiary-fixed": "#e3dbfd",
-              "on-tertiary-fixed-variant": "#5c5672",
-              "surface-container-highest": "#d9e4ea",
-              "secondary-fixed-dim": "#c7d5ed",
-              "surface-tint": "#0c56d0",
-              "on-primary-fixed": "#003993",
-              "on-error-container": "#752121",
-              "tertiary-fixed-dim": "#d5cdee",
-              "surface-variant": "#d9e4ea",
-              "error-container": "#fe8983",
-              "on-background": "#2a3439",
-              "surface-container-low": "#f0f4f7",
-              "on-secondary-fixed": "#324053",
-              "inverse-primary": "#5c8bff",
-              "surface-dim": "#cfdce3",
               "on-tertiary-fixed": "#3f3a54",
+              "on-secondary-container": "#455367",
+              "error-dim": "#4e0309",
+              "on-primary": "#f8f7ff",
+              "surface-container-low": "#f0f4f7",
+              "surface-bright": "#f7f9fb",
+              "tertiary": "#615b77",
+              "primary-fixed-dim": "#c6d3ff",
+              "on-primary-container": "#004ab9",
+              "surface-container": "#e8eff3",
+              "surface-container-lowest": "#ffffff",
+              "secondary": "#526074",
+              "on-surface-variant": "#566166",
+              "tertiary-container": "#e3dbfd",
+              "primary": "#0c56d0",
+              "on-primary-fixed": "#003993",
+              "on-tertiary-fixed-variant": "#5c5672",
+              "on-background": "#2a3439",
+              "secondary-dim": "#465468",
+              "on-secondary-fixed-variant": "#4e5c71",
+              "tertiary-fixed": "#e3dbfd",
+              "surface-variant": "#d9e4ea",
+              "surface": "#f7f9fb",
+              "outline": "#717c82",
+              "on-tertiary": "#fcf7ff",
+              "tertiary-dim": "#554f6b",
+              "inverse-surface": "#0b0f10",
+              "on-secondary": "#f8f8ff",
+              "surface-container-highest": "#d9e4ea",
+              "on-tertiary-container": "#524c68",
+              "surface-tint": "#0c56d0",
+              "surface-container-high": "#e1e9ee",
               "outline-variant": "#a9b4b9",
               "inverse-on-surface": "#9a9d9f",
-              "tertiary-container": "#e3dbfd",
-              "on-error": "#fff7f6",
-              "on-tertiary": "#fcf7ff",
-              "primary-fixed-dim": "#c6d3ff",
-              "primary-container": "#dae2ff",
-              "surface-container": "#e8eff3",
-              "secondary": "#526074",
-              "on-tertiary-container": "#524c68",
-              "surface-container-high": "#e1e9ee",
-              "on-primary-fixed-variant": "#0253cd",
-              "on-primary": "#f8f7ff",
-              "tertiary": "#615b77",
               "primary-dim": "#004aba",
-              "error-dim": "#4e0309",
-              "background": "#f1f5f9",
-              "tertiary-dim": "#554f6b",
-              "surface-container-lowest": "#ffffff",
-              "error": "#9f403d",
-              "outline": "#717c82",
-              "surface": "#f1f5f9",
-              "primary-fixed": "#dae2ff",
-              "primary": "#0c56d0",
-              "secondary-dim": "#465468",
-              "on-surface": "#2a3439",
-              "on-secondary": "#f8f8ff",
+              "on-error-container": "#752121",
+              "background": "#f7f9fb",
               "secondary-container": "#d5e3fc",
-              "on-secondary-fixed-variant": "#4e5c71",
-              "on-primary-container": "#004ab9",
-              "secondary-fixed": "#d5e3fc"
+              "on-primary-fixed-variant": "#0253cd",
+              "primary-container": "#dae2ff",
+              "secondary-fixed": "#d5e3fc",
+              "tertiary-fixed-dim": "#d5cdee",
+              "error": "#9f403d",
+              "on-secondary-fixed": "#324053",
+              "on-error": "#fff7f6",
+              "surface-dim": "#cfdce3",
+              "error-container": "#fe8983",
+              "primary-fixed": "#dae2ff",
+              "on-surface": "#2a3439",
+              "inverse-primary": "#5c8bff",
+              "secondary-fixed-dim": "#c7d5ed"
             },
             fontFamily: {
               "headline": ["Public Sans"],
@@ -76,357 +76,334 @@
       }
     </script>
 <style>
+        body {
+            background-color: #f7f9fb;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            overflow: hidden; /* Strict fix for 16:9 dashboard */
+            height: 1080px;
+            width: 1920px;
+        }
+        .public-sans { font-family: 'Public Sans', sans-serif; }
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f1f5f9;
-            /* Force 16:9 canvas feel on standard displays, optimized for 1920x1080 */
-            width: 1920px;
-            height: 1080px;
-            overflow: hidden; /* No scroll for TV Dashboard */
-            margin: 0 auto;
-        }
-        .tv-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-        }
-        .glass-header {
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.95);
-        }
     </style>
 </head>
-<body class="text-on-surface relative flex flex-col">
-<!-- TopNavBar -->
-<header class="flex-none z-50 flex justify-between items-center w-full px-10 py-5 bg-white border-b border-outline-variant/30 shadow-sm">
-<div class="flex items-center">
-<img alt="Logo Osasco" class="h-12 w-auto mr-4" src="https://lh3.googleusercontent.com/aida/ADBb0uiIwji6zMXon04ThHNkRtIxmxe6MmjnRWHUlbRc0GI5Eo_n8eWA7roC8LBnZLkvOmHw9DIejBPLiOa0jCtALvGgJ7fw3gdesrE-Yvxw5kIVMr7rwjGZ2OkliBPOzIsrKgQgIjn9REjpnujx66KDBChnfthUUpTc1GWCfUEmoidVhlTXUGsAyh4gGVqwcgG66BQmxa9yAYSrmB3srakiSacuQ2JxJIO2oT92RJUzsqVT8sS4CU7sdeKDH3h3KHhqf4NZN9j_GGRiAtY"/>
-<span class="text-2xl font-black text-[#0c56d0] uppercase tracking-widest font-headline">prefeitura municipal de osasco</span>
-<div class="h-8 w-px bg-outline-variant opacity-30 mx-4"></div>
-<h1 class="font-headline font-bold text-xl text-on-surface tracking-tight">Central de Licitações - Painel de Monitoramento</h1>
-</div>
-<div class="flex items-center gap-8">
+<body class="text-on-surface">
+<!-- Main Content Area (Full height/width 16:9 container) -->
+<main class="w-[1920px] h-[1080px] flex flex-col bg-surface overflow-hidden">
+<!-- Header (Compact version) -->
+<header class="flex justify-between items-center w-full px-12 py-4 bg-white border-b border-surface-variant/30 shrink-0">
 <div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-outline text-2xl" data-icon="monitor_heart">monitor_heart</span>
-<span class="material-symbols-outlined text-outline text-2xl" data-icon="settings">settings</span>
-<div class="relative">
-<span class="material-symbols-outlined text-outline text-2xl" data-icon="notifications">notifications</span>
-<span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-error rounded-full"></span>
+<div class="w-10 h-10 overflow-hidden bg-white flex items-center justify-center border border-surface-variant rounded-sm">
+<img class="w-full h-auto object-contain" data-alt="Official crest logo of Prefeitura de Osasco" src="https://lh3.googleusercontent.com/aida/ADBb0uhOWIc4NPXgGmEjDhzroIvUO-ymU32Dl3lI8Ndn5Jeic4bkytZf-XlTew4_vZjcdRG0nl7cFPqbF-Z5I0V9YsORyXtqH0QONc0dnBQ1qQi3gEWLxAlBO5l-MABfpMIjXAiUEC3XDixCyjkR2Qi5C-jzvp-eotWeZhWonO8XXK0Z5eZBC2dV-Rp6OVz_zuxgPFjxH4VDtoOxbI8JJPw4NPbDG-jkKB1GTISVMQk5Jf40UMcZHRNsMfkosQuFO1blanaC_T38PD4MFQ"/>
 </div>
+<h1 class="text-2xl font-black text-slate-900 public-sans">Prefeitura Municipal de Osasco</h1>
 </div>
-<div class="flex items-center gap-4 bg-surface-container-low px-5 py-2.5 rounded-full border border-outline-variant/20">
-<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-bold text-sm shadow-sm">CC</div>
-<div class="text-sm font-semibold">
-<div class="text-on-surface">SISTEMA ATIVO</div>
-<div class="text-outline text-[11px] uppercase">16/03/2026 09:42</div>
+<div class="flex items-center gap-4">
+<div class="flex flex-col items-end">
+<span class="text-[10px] font-bold text-primary uppercase tracking-widest leading-tight">Painel Ativo</span>
+<span class="text-xs font-semibold text-slate-500 leading-tight">Secretaria de Compras</span>
 </div>
+<div class="bg-primary/10 p-1.5 rounded-lg text-primary">
+<span class="material-symbols-outlined text-lg">wifi_tethering</span>
 </div>
 </div>
 </header>
-<main class="flex-1 p-10 overflow-hidden">
-<!-- Pregões do Dia Section -->
-<section class="mb-8">
-<div class="flex items-center gap-4 mb-5">
-<div class="w-2.5 h-10 bg-primary rounded-full"></div>
-<h2 class="font-headline font-black text-3xl text-on-surface uppercase tracking-tight">Pregões do Dia</h2>
-<span class="bg-primary text-on-primary text-sm font-bold px-4 py-1.5 rounded-full">16/03/2026</span>
+<div class="flex-1 flex flex-col px-12 py-6 gap-6 min-h-0">
+<!-- Pregões do Dia Section (Reduced height) -->
+<section class="shrink-0">
+<div class="flex items-center justify-between mb-2">
+<h3 class="text-[10px] uppercase tracking-[0.2em] font-extrabold text-outline flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                    Pregões do Dia
+                </h3>
 </div>
-<div class="grid grid-cols-4 gap-6">
-<!-- Highlighted Card: UTENSÍLIOS DOMÉSTICOS -->
-<div class="bg-white rounded-xl border border-outline-variant/50 p-6 flex flex-col justify-between hover:shadow-xl transition-all shadow-md relative overflow-hidden h-44">
-<div class="absolute -right-8 -top-8 bg-primary/5 w-24 h-24 rounded-full"></div>
-<div>
-<div class="flex justify-between items-start mb-2">
-<span class="text-primary font-headline font-bold text-base tracking-tight">90.004/2026</span>
-<span class="material-symbols-outlined text-primary text-xl" data-icon="flatware">flatware</span>
-</div>
-<h3 class="text-on-surface font-headline font-black text-lg leading-tight uppercase mb-1">UTENSÍLIOS DOMÉSTICOS (PMO)</h3>
-<p class="text-on-surface-variant text-sm font-medium">RESPONSÁVEL: <span class="text-on-surface">MARIANA</span></p>
-</div>
-<div class="mt-4 pt-4 border-t border-surface-container flex justify-between items-center">
-<div class="inline-flex items-center gap-1.5 text-[11px] font-black text-primary uppercase bg-primary-container px-3 py-1 rounded">
-<span class="w-2 h-2 bg-primary rounded-full animate-ping"></span>
-                            EM ANDAMENTO
-                        </div>
-<div class="bg-primary text-on-primary text-[11px] font-bold px-4 py-1.5 rounded-full shadow-sm">SALA 01</div>
-</div>
-</div>
-<!-- Highlighted Card: LIVROS -->
-<div class="bg-white rounded-xl border border-outline-variant/50 p-6 flex flex-col justify-between hover:shadow-xl transition-all shadow-md h-44">
-<div>
-<div class="flex justify-between items-start mb-2">
-<span class="text-primary font-headline font-bold text-base tracking-tight">90.055/2025</span>
-<span class="material-symbols-outlined text-primary text-xl" data-icon="menu_book">menu_book</span>
-</div>
-<h3 class="text-on-surface font-headline font-black text-lg leading-tight uppercase mb-1">LIVROS PORTUGUÊS / MATEMÁTICA</h3>
-<p class="text-on-surface-variant text-sm font-medium">RESPONSÁVEL: <span class="text-on-surface">RICARDO</span></p>
-</div>
-<div class="mt-4 pt-4 border-t border-surface-container flex justify-between items-center">
-<div class="inline-flex items-center gap-1.5 text-[11px] font-black text-on-secondary-container uppercase bg-secondary-container/50 px-3 py-1 rounded">
-                            AGUARDANDO ABERTURA
-                        </div>
-<div class="bg-secondary-container text-on-secondary-container text-[11px] font-bold px-4 py-1.5 rounded-full">14:00H</div>
-</div>
-</div>
-<!-- Empty Slots to maintain balance in 4-column layout if needed, or just spacers -->
-</div>
-</section>
-<!-- Monitoring Panel Section -->
-<section class="flex-1">
-<div class="flex items-center gap-4 mb-5">
-<div class="w-2.5 h-10 bg-outline-variant rounded-full opacity-50"></div>
-<h2 class="font-headline font-bold text-2xl text-on-surface-variant uppercase tracking-tight">Painel de Monitoramento Geral</h2>
-</div>
-<div class="grid grid-cols-4 grid-rows-3 gap-5">
-<!-- Card 1 -->
-<div class="bg-white rounded-xl border border-outline-variant/40 p-5 flex flex-col justify-between hover:shadow-lg transition-all shadow-sm h-40">
-<div>
-<div class="flex justify-between items-start mb-2">
-<span class="text-primary font-headline font-bold text-sm tracking-tight">90.011/2026</span>
-<span class="material-symbols-outlined text-outline-variant text-lg" data-icon="inventory_2">inventory_2</span>
-</div>
-<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1">ARTIGOS FUNERÁRIOS</h3>
-<p class="text-on-surface-variant text-[11px] font-medium">RESPONSÁVEL: <span class="text-on-surface">THAIS</span></p>
-</div>
-<div class="mt-4 pt-4 border-t border-surface-container flex justify-between items-center">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today">calendar_today</span>
-<span class="text-[11px] font-bold text-on-surface">25/03/2026</span>
-</div>
-<div class="bg-primary-container text-on-primary-container text-[10px] font-bold px-3 py-1 rounded">10H</div>
-</div>
-</div>
-<!-- Card 2 -->
-<div class="bg-white rounded-xl border border-outline-variant/40 p-5 flex flex-col justify-between hover:shadow-lg transition-all shadow-sm h-40">
-<div>
-<div class="flex justify-between items-start mb-2">
-<span class="text-primary font-headline font-bold text-sm tracking-tight">90.012/2026</span>
-<span class="material-symbols-outlined text-outline-variant text-lg" data-icon="shield">shield</span>
-</div>
-<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1">SEGURANÇA DESARMADA</h3>
-<p class="text-on-surface-variant text-[11px] font-medium">RESPONSÁVEL: <span class="text-on-surface">LUCIANA</span></p>
-</div>
-<div class="mt-4 pt-4 border-t border-surface-container flex justify-between items-center">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today">calendar_today</span>
-<span class="text-[11px] font-bold text-on-surface">23/03/2026</span>
-</div>
-<div class="bg-primary-container text-on-primary-container text-[10px] font-bold px-3 py-1 rounded">10H</div>
-</div>
-</div>
-<!-- Card 3 -->
-<div class="bg-white rounded-xl border border-outline-variant/40 p-5 flex flex-col justify-between hover:shadow-lg transition-all shadow-sm h-40">
-<div>
-<div class="flex justify-between items-start mb-2">
-<span class="text-primary font-headline font-bold text-sm tracking-tight">90.013/2026</span>
-<span class="material-symbols-outlined text-outline-variant text-lg" data-icon="shopping_bag">shopping_bag</span>
-</div>
-<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1">SACOLAS PLÁSTICAS (PMO)</h3>
-<p class="text-on-surface-variant text-[11px] font-medium">RESPONSÁVEL: <span class="text-on-surface">MARIANA</span></p>
-</div>
-<div class="mt-4 pt-4 border-t border-surface-container flex justify-between items-center">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today">calendar_today</span>
-<span class="text-[11px] font-bold text-on-surface">23/03/2026</span>
-</div>
-<div class="bg-primary-container text-on-primary-container text-[10px] font-bold px-3 py-1 rounded">10H</div>
-</div>
-</div>
-<!-- Card 4 -->
-<div class="bg-white rounded-xl border border-outline-variant/40 p-5 flex flex-col justify-between hover:shadow-lg transition-all shadow-sm h-40">
-<div>
-<div class="flex justify-between items-start mb-2">
-<span class="text-primary font-headline font-bold text-sm tracking-tight">90.014/2026</span>
-<span class="material-symbols-outlined text-outline-variant text-lg" data-icon="apparel">apparel</span>
-</div>
-<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1">UNIFORMES COMDEC</h3>
-<p class="text-on-surface-variant text-[11px] font-medium">RESPONSÁVEL: <span class="text-on-surface">DAIANA</span></p>
-</div>
-<div class="mt-4 pt-4 border-t border-surface-container flex justify-between items-center">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today">calendar_today</span>
-<span class="text-[11px] font-bold text-on-surface">24/03/2026</span>
-</div>
-<div class="bg-primary-container text-on-primary-container text-[10px] font-bold px-3 py-1 rounded">10H</div>
-</div>
-</div>
-<!-- Card 5 -->
-<div class="bg-white rounded-xl border border-outline-variant/40 p-5 flex flex-col justify-between hover:shadow-lg transition-all shadow-sm h-40">
-<div>
-<div class="flex justify-between items-start mb-2">
-<span class="text-primary font-headline font-bold text-sm tracking-tight">90.015/2026</span>
-<span class="material-symbols-outlined text-outline-variant text-lg" data-icon="settings_suggest">settings_suggest</span>
-</div>
-<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1">MANUTENÇÃO DATA CENTER</h3>
-<p class="text-on-surface-variant text-[11px] font-medium">RESPONSÁVEL: <span class="text-on-surface">MARIANA</span></p>
-</div>
-<div class="mt-4 pt-4 border-t border-surface-container flex justify-between items-center">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today">calendar_today</span>
-<span class="text-[11px] font-bold text-on-surface">26/03/2026</span>
-</div>
-<div class="bg-primary-container text-on-primary-container text-[10px] font-bold px-3 py-1 rounded">10H</div>
-</div>
-</div>
-<!-- Card 6 -->
-<div class="bg-white rounded-xl border border-outline-variant/40 p-5 flex flex-col justify-between hover:shadow-lg transition-all shadow-sm h-40">
-<div>
-<div class="flex justify-between items-start mb-2">
-<span class="text-primary font-headline font-bold text-sm tracking-tight">90.017/2026</span>
-<span class="material-symbols-outlined text-outline-variant text-lg" data-icon="box">box</span>
-</div>
-<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1">URNAS MORTUARIAS (SSO)</h3>
-<p class="text-on-surface-variant text-[11px] font-medium">RESPONSÁVEL: <span class="text-on-surface">MARCELO</span></p>
-</div>
-<div class="mt-4 pt-4 border-t border-surface-container flex justify-between items-center">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today">calendar_today</span>
-<span class="text-[11px] font-bold text-on-surface">30/03/2026</span>
-</div>
-<div class="bg-primary-container text-on-primary-container text-[10px] font-bold px-3 py-1 rounded">10H</div>
-</div>
-</div>
-<!-- Card 7 -->
-<div class="bg-white rounded-xl border border-outline-variant/40 p-5 flex flex-col justify-between hover:shadow-lg transition-all shadow-sm h-40">
-<div>
-<div class="flex justify-between items-start mb-2">
-<span class="text-primary font-headline font-bold text-sm tracking-tight">90.018/2026</span>
-<span class="material-symbols-outlined text-outline-variant text-lg" data-icon="nutrition">nutrition</span>
-</div>
-<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1">FRUTAS E VERDURAS(PMO)</h3>
-<p class="text-on-surface-variant text-[11px] font-medium">RESPONSÁVEL: <span class="text-on-surface">LUCIANA</span></p>
-</div>
-<div class="mt-4 pt-4 border-t border-surface-container flex justify-between items-center">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today">calendar_today</span>
-<span class="text-[11px] font-bold text-on-surface">07/04/2026</span>
-</div>
-<div class="bg-primary-container text-on-primary-container text-[10px] font-bold px-3 py-1 rounded">10H</div>
-</div>
-</div>
-<!-- Card 8 -->
-<div class="bg-white rounded-xl border border-outline-variant/40 p-5 flex flex-col justify-between hover:shadow-lg transition-all shadow-sm h-40">
-<div>
-<div class="flex justify-between items-start mb-2">
-<span class="text-primary font-headline font-bold text-sm tracking-tight">90.019/2026</span>
-<span class="material-symbols-outlined text-outline-variant text-lg" data-icon="shopping_cart">shopping_cart</span>
-</div>
-<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1">CESTAS BASICAS</h3>
-<p class="text-on-surface-variant text-[11px] font-medium">RESPONSÁVEL: <span class="text-on-surface">MARCELO</span></p>
-</div>
-<div class="mt-4 pt-4 border-t border-surface-container flex justify-between items-center">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today">calendar_today</span>
-<span class="text-[11px] font-bold text-on-surface">10/04/2026</span>
-</div>
-<div class="bg-primary-container text-on-primary-container text-[10px] font-bold px-3 py-1 rounded">10H</div>
-</div>
-</div>
-<!-- Card 9 (STATUS: SUSPENSO) -->
-<div class="bg-white rounded-xl border border-error/40 p-5 flex flex-col justify-between hover:shadow-lg transition-all relative overflow-hidden shadow-sm h-40">
-<div class="absolute top-0 right-0 p-1">
-<div class="bg-error text-on-error text-[9px] font-black px-2 py-0.5 rounded-bl-lg uppercase">ALERTA</div>
+<div class="flex gap-4">
+<!-- Featured Card 1 -->
+<div class="flex-1 bg-white p-4 rounded-xl border-l-4 border-primary shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="p-3 bg-primary-container rounded-lg text-primary">
+<span class="material-symbols-outlined text-2xl">trending_up</span>
 </div>
 <div>
-<div class="flex justify-between items-start mb-2">
-<span class="text-error font-headline font-bold text-sm tracking-tight">90.005/2026</span>
-<span class="material-symbols-outlined text-error text-lg" data-icon="warning">warning</span>
-</div>
-<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1">PLAYGROUND (SED)</h3>
-<p class="text-on-surface-variant text-[11px] font-medium">RESPONSÁVEL: <span class="text-on-surface">THAIS</span></p>
-</div>
-<div class="mt-2 flex justify-between items-center border-t border-surface-container pt-3">
-<span class="text-error font-black text-[10px] uppercase">SUSPENSO</span>
-<span class="text-[10px] font-bold text-on-surface">02/02/2026</span>
+<p class="text-[9px] font-black text-slate-400 uppercase tracking-widest">PROCESSO EM DESTAQUE</p>
+<h4 class="text-xl font-black text-on-surface public-sans">PE 90.004/2026</h4>
+<p class="text-xs text-on-surface-variant font-medium">MARIANA | UTENSÍLIOS DOMÉSTICOS (PMO)</p>
 </div>
 </div>
-<!-- Card 10 -->
-<div class="bg-white rounded-xl border border-outline-variant/40 p-5 flex flex-col justify-between hover:shadow-lg transition-all shadow-sm h-40">
+<div class="text-right">
+<span class="px-3 py-1 bg-primary-container text-on-primary-container rounded-full text-[9px] font-bold uppercase tracking-wider">EM ANDAMENTO</span>
+<p class="text-[10px] text-outline mt-1 font-medium">Sessão iniciada às 10:00</p>
+</div>
+</div>
+<!-- Featured Card 2 -->
+<div class="flex-1 bg-white p-4 rounded-xl border-l-4 border-tertiary shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="p-3 bg-tertiary-container rounded-lg text-tertiary">
+<span class="material-symbols-outlined text-2xl">gavel</span>
+</div>
 <div>
-<div class="flex justify-between items-start mb-2">
-<span class="text-primary font-headline font-bold text-sm tracking-tight">90.006/2026</span>
-<span class="material-symbols-outlined text-outline-variant text-lg" data-icon="clean_hands">clean_hands</span>
-</div>
-<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1">MATERIAL DE LIMPEZA</h3>
-<p class="text-on-surface-variant text-[11px] font-medium mb-1">RESPONSÁVEL: <span class="text-on-surface">LUCIANA</span></p>
-<div class="flex gap-2 text-[9px] font-bold text-outline-variant">
-<span class="bg-surface-container-low px-1 rounded">L: 26/03</span>
-<span class="bg-surface-container-low px-1 rounded">A: 27/03</span>
+<p class="text-[9px] font-black text-slate-400 uppercase tracking-widest">PROCESSO EM DESTAQUE</p>
+<h4 class="text-xl font-black text-on-surface public-sans">PE 90.055/2025</h4>
+<p class="text-xs text-on-surface-variant font-medium">RICARDO | LIVROS PORTUGUES E MATEMATICA</p>
 </div>
 </div>
-<div class="mt-4 pt-4 border-t border-surface-container flex justify-between items-center">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today">calendar_today</span>
-<span class="text-[11px] font-bold text-on-surface">30/03/2026</span>
-</div>
-<div class="bg-primary-container text-on-primary-container text-[10px] font-bold px-3 py-1 rounded">10H</div>
-</div>
-</div>
-<!-- Card 11 -->
-<div class="bg-white rounded-xl border border-outline-variant/40 p-5 flex flex-col justify-between hover:shadow-lg transition-all shadow-sm h-40">
-<div>
-<div class="flex justify-between items-start mb-2">
-<span class="text-primary font-headline font-bold text-sm tracking-tight">90.008/2026</span>
-<span class="material-symbols-outlined text-outline-variant text-lg" data-icon="propane_tank">propane_tank</span>
-</div>
-<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1">AQUISIÇÃO DE GÁS (PMO)</h3>
-<p class="text-on-surface-variant text-[11px] font-medium">RESPONSÁVEL: <span class="text-on-surface">MARIANA</span></p>
-<span class="text-[9px] font-black text-tertiary uppercase border border-tertiary-fixed px-1 rounded inline-block mt-1">DECISÃO</span>
-</div>
-<div class="mt-4 pt-4 border-t border-surface-container flex justify-between items-center">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today">calendar_today</span>
-<span class="text-[11px] font-bold text-on-surface">08/04/2026</span>
-</div>
-<div class="text-[9px] font-bold text-outline">R: 16/03</div>
-</div>
-</div>
-<!-- Card 12 -->
-<div class="bg-white rounded-xl border border-outline-variant/40 p-5 flex flex-col justify-between hover:shadow-lg transition-all shadow-sm h-40">
-<div>
-<div class="flex justify-between items-start mb-2">
-<span class="text-primary font-headline font-bold text-sm tracking-tight">90.098/2025</span>
-<span class="material-symbols-outlined text-outline-variant text-lg" data-icon="checkroom">checkroom</span>
-</div>
-<h3 class="text-on-surface font-headline font-bold text-base leading-tight uppercase mb-1">UNIFORMES SECONTRU</h3>
-<p class="text-on-surface-variant text-[11px] font-medium">RESPONSÁVEL: <span class="text-on-surface">THAIS</span></p>
-</div>
-<div class="mt-4 pt-4 border-t border-surface-container flex flex-col gap-1">
-<div class="flex justify-between items-center">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_today">calendar_today</span>
-<span class="text-[11px] font-bold text-on-surface">13/04/2026</span>
-</div>
-<span class="text-[10px] font-bold bg-primary-container text-on-primary-container px-2 py-0.5 rounded">10H</span>
-</div>
-<div class="flex justify-between items-center text-[9px] font-bold text-outline-variant">
-<span>A: 31/03</span>
-<span>S: 06/04</span>
-</div>
+<div class="text-right">
+<span class="px-3 py-1 bg-tertiary-container text-on-tertiary-container rounded-full text-[9px] font-bold uppercase tracking-wider">DECISÃO</span>
+<p class="text-[10px] text-outline mt-1 font-medium">Fase final de julgamento</p>
 </div>
 </div>
 </div>
 </section>
-</main>
-<!-- Footer -->
-<footer class="flex-none w-full px-10 py-4 bg-white border-t border-outline-variant/30 flex justify-between items-center text-[11px] font-bold text-on-surface-variant z-50">
-<div class="flex items-center gap-8">
-<div class="flex items-center gap-2.5">
-<span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
-                SISTEMA OPERACIONAL
-            </div>
-<div class="flex items-center gap-2.5">
-<span class="material-symbols-outlined text-base" data-icon="cloud_done">cloud_done</span>
-                DADOS ATUALIZADOS EM TEMPO REAL
-            </div>
+<!-- Main Monitoring Grid -->
+<section class="flex-1 flex flex-col min-h-0">
+<div class="mb-4">
+<h2 class="text-2xl font-black public-sans text-on-surface tracking-tight uppercase">Painel de Monitoramento Geral</h2>
+<div class="h-1 w-16 bg-primary mt-1"></div>
 </div>
-<div class="flex items-center gap-6 uppercase tracking-wider">
-<span>TERMINAL: TV-COMMAND-01</span>
-<div class="h-4 w-px bg-outline-variant opacity-30"></div>
-<span>LICENÇA INSTITUCIONAL ATIVA</span>
+<!-- 4x4 Grid - Optimized spacing -->
+<div class="grid grid-cols-4 gap-4 flex-1">
+<!-- Row 1 -->
+<div class="bg-white border border-outline-variant p-4 rounded-xl flex flex-col justify-between hover:bg-surface-container-low transition-colors shadow-sm min-h-0">
+<div>
+<div class="flex justify-between items-start mb-1">
+<span class="text-lg font-black text-primary public-sans leading-none">90.011/2026</span>
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded-full text-[9px] font-bold">AGUARDANDO</span>
+</div>
+<h5 class="text-[9px] font-bold text-slate-400 uppercase tracking-tight">THAIS</h5>
+<p class="text-sm font-bold text-on-surface leading-tight mt-1 line-clamp-1">ARTIGOS FUNERÁRIOS</p>
+</div>
+<div class="flex items-center gap-2 text-[11px] text-outline border-t pt-2 mt-auto">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>25/03/2026 • 10H</span>
+</div>
+</div>
+<div class="bg-white border border-outline-variant p-4 rounded-xl flex flex-col justify-between hover:bg-surface-container-low transition-colors shadow-sm min-h-0">
+<div>
+<div class="flex justify-between items-start mb-1">
+<span class="text-lg font-black text-primary public-sans leading-none">90.012/2026</span>
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded-full text-[9px] font-bold">AGUARDANDO</span>
+</div>
+<h5 class="text-[9px] font-bold text-slate-400 uppercase tracking-tight">LUCIANA</h5>
+<p class="text-sm font-bold text-on-surface leading-tight mt-1 line-clamp-1">SEGURANÇA DESARMADA</p>
+</div>
+<div class="flex items-center gap-2 text-[11px] text-outline border-t pt-2 mt-auto">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>23/03/2026 • 10H</span>
+</div>
+</div>
+<div class="bg-white border border-outline-variant p-4 rounded-xl flex flex-col justify-between hover:bg-surface-container-low transition-colors shadow-sm min-h-0">
+<div>
+<div class="flex justify-between items-start mb-1">
+<span class="text-lg font-black text-primary public-sans leading-none">90.013/2026</span>
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded-full text-[9px] font-bold">AGUARDANDO</span>
+</div>
+<h5 class="text-[9px] font-bold text-slate-400 uppercase tracking-tight">MARIANA</h5>
+<p class="text-sm font-bold text-on-surface leading-tight mt-1 line-clamp-1">SACOLAS PLÁSTICAS (PMO)</p>
+</div>
+<div class="flex items-center gap-2 text-[11px] text-outline border-t pt-2 mt-auto">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>23/03/2026 • 10H</span>
+</div>
+</div>
+<div class="bg-white border border-outline-variant p-4 rounded-xl flex flex-col justify-between hover:bg-surface-container-low transition-colors shadow-sm min-h-0">
+<div>
+<div class="flex justify-between items-start mb-1">
+<span class="text-lg font-black text-primary public-sans leading-none">90.014/2026</span>
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded-full text-[9px] font-bold">AGUARDANDO</span>
+</div>
+<h5 class="text-[9px] font-bold text-slate-400 uppercase tracking-tight">DAIANA</h5>
+<p class="text-sm font-bold text-on-surface leading-tight mt-1 line-clamp-1">UNIFORMES COMDEC</p>
+</div>
+<div class="flex items-center gap-2 text-[11px] text-outline border-t pt-2 mt-auto">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>24/03/2026 • 10H</span>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="bg-white border border-outline-variant p-4 rounded-xl flex flex-col justify-between hover:bg-surface-container-low transition-colors shadow-sm min-h-0">
+<div>
+<div class="flex justify-between items-start mb-1">
+<span class="text-lg font-black text-primary public-sans leading-none">90.015/2026</span>
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded-full text-[9px] font-bold">AGUARDANDO</span>
+</div>
+<h5 class="text-[9px] font-bold text-slate-400 uppercase tracking-tight">MARIANA</h5>
+<p class="text-sm font-bold text-on-surface leading-tight mt-1 line-clamp-1">MANUTENÇÃO DATA CENTER</p>
+</div>
+<div class="flex items-center gap-2 text-[11px] text-outline border-t pt-2 mt-auto">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>26/03/2026 • 10H</span>
+</div>
+</div>
+<div class="bg-white border border-outline-variant p-4 rounded-xl flex flex-col justify-between hover:bg-surface-container-low transition-colors shadow-sm min-h-0">
+<div>
+<div class="flex justify-between items-start mb-1">
+<span class="text-lg font-black text-primary public-sans leading-none">90.017/2026</span>
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded-full text-[9px] font-bold">AGUARDANDO</span>
+</div>
+<h5 class="text-[9px] font-bold text-slate-400 uppercase tracking-tight">MARCELO</h5>
+<p class="text-sm font-bold text-on-surface leading-tight mt-1 line-clamp-1">URNAS MORTUARIAS (SSO)</p>
+</div>
+<div class="flex items-center gap-2 text-[11px] text-outline border-t pt-2 mt-auto">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>30/03/2026 • 10H</span>
+</div>
+</div>
+<div class="bg-white border border-outline-variant p-4 rounded-xl flex flex-col justify-between hover:bg-surface-container-low transition-colors shadow-sm min-h-0">
+<div>
+<div class="flex justify-between items-start mb-1">
+<span class="text-lg font-black text-primary public-sans leading-none">90.018/2026</span>
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded-full text-[9px] font-bold">AGUARDANDO</span>
+</div>
+<h5 class="text-[9px] font-bold text-slate-400 uppercase tracking-tight">LUCIANA</h5>
+<p class="text-sm font-bold text-on-surface leading-tight mt-1 line-clamp-1">FRUTAS E VERDURAS (PMO)</p>
+</div>
+<div class="flex items-center gap-2 text-[11px] text-outline border-t pt-2 mt-auto">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>07/04/2026 • 10H</span>
+</div>
+</div>
+<div class="bg-white border border-outline-variant p-4 rounded-xl flex flex-col justify-between hover:bg-surface-container-low transition-colors shadow-sm min-h-0">
+<div>
+<div class="flex justify-between items-start mb-1">
+<span class="text-lg font-black text-primary public-sans leading-none">90.019/2026</span>
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded-full text-[9px] font-bold">AGUARDANDO</span>
+</div>
+<h5 class="text-[9px] font-bold text-slate-400 uppercase tracking-tight">MARCELO</h5>
+<p class="text-sm font-bold text-on-surface leading-tight mt-1 line-clamp-1">CESTAS BASICAS</p>
+</div>
+<div class="flex items-center gap-2 text-[11px] text-outline border-t pt-2 mt-auto">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>10/04/2026 • 10H</span>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="bg-white border-2 border-primary p-4 rounded-xl flex flex-col justify-between shadow-sm ring-2 ring-primary/5 min-h-0">
+<div>
+<div class="flex justify-between items-start mb-1">
+<span class="text-lg font-black text-primary public-sans leading-none">90.004/2026</span>
+<span class="px-2 py-0.5 bg-primary-container text-on-primary-container rounded-full text-[9px] font-bold">EM ANDAMENTO</span>
+</div>
+<h5 class="text-[9px] font-bold text-slate-400 uppercase tracking-tight">MARIANA</h5>
+<p class="text-sm font-bold text-on-surface leading-tight mt-1 line-clamp-1">UTENSÍLIOS DOMÉSTICOS (PMO)</p>
+</div>
+<div class="flex items-center gap-2 text-[11px] text-primary font-bold border-t border-primary/20 pt-2 mt-auto">
+<span class="material-symbols-outlined text-sm">timer</span>
+<span>19/03/2026 • 10H</span>
+</div>
+</div>
+<div class="bg-white border-2 border-error-container p-4 rounded-xl flex flex-col justify-between shadow-sm ring-2 ring-error/5 min-h-0">
+<div>
+<div class="flex justify-between items-start mb-1">
+<span class="text-lg font-black text-error public-sans leading-none">90.005/2026</span>
+<span class="px-2 py-0.5 bg-error-container text-on-error-container rounded-full text-[9px] font-bold">SUSPENSO</span>
+</div>
+<h5 class="text-[9px] font-bold text-slate-400 uppercase tracking-tight">THAIS</h5>
+<p class="text-sm font-bold text-on-surface leading-tight mt-1 line-clamp-1">PLAYGROUND (SED)</p>
+</div>
+<div class="flex items-center gap-2 text-[11px] text-error font-bold border-t border-error-container/20 pt-2 mt-auto">
+<span class="material-symbols-outlined text-sm">error</span>
+<span>ALERTA DE SUSPENSÃO</span>
+</div>
+</div>
+<div class="bg-white border border-outline-variant p-4 rounded-xl flex flex-col justify-between hover:bg-surface-container-low transition-colors shadow-sm min-h-0">
+<div>
+<div class="flex justify-between items-start mb-1">
+<span class="text-lg font-black text-primary public-sans leading-none">90.006/2026</span>
+<span class="px-2 py-0.5 bg-tertiary-container text-on-tertiary-container rounded-full text-[9px] font-bold">EM ANÁLISE</span>
+</div>
+<h5 class="text-[9px] font-bold text-slate-400 uppercase tracking-tight">LUCIANA</h5>
+<p class="text-sm font-bold text-on-surface leading-tight mt-1 line-clamp-1">MATERIAL DE LIMPEZA</p>
+</div>
+<div class="flex flex-col gap-0.5 border-t pt-2 mt-auto">
+<div class="flex items-center gap-2 text-[9px] text-tertiary font-bold">
+<span class="material-symbols-outlined text-[10px]">description</span>
+<span>Laudo 26/03</span>
+</div>
+<div class="flex items-center gap-2 text-[11px] text-outline">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>30/03/2026 • 10H</span>
+</div>
+</div>
+</div>
+<div class="bg-white border border-outline-variant p-4 rounded-xl flex flex-col justify-between hover:bg-surface-container-low transition-colors shadow-sm min-h-0">
+<div>
+<div class="flex justify-between items-start mb-1">
+<span class="text-lg font-black text-primary public-sans leading-none">90.008/2026</span>
+<span class="px-2 py-0.5 bg-tertiary-container text-on-tertiary-container rounded-full text-[9px] font-bold">DECISÃO</span>
+</div>
+<h5 class="text-[9px] font-bold text-slate-400 uppercase tracking-tight">MARIANA</h5>
+<p class="text-sm font-bold text-on-surface leading-tight mt-1 line-clamp-1">AQUISIÇÃO DE GÁS (PMO)</p>
+</div>
+<div class="flex items-center gap-2 text-[11px] text-outline border-t pt-2 mt-auto">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>08/04/2026</span>
+</div>
+</div>
+<!-- Row 4 -->
+<div class="bg-white border border-outline-variant p-4 rounded-xl flex flex-col justify-between hover:bg-surface-container-low transition-colors shadow-sm min-h-0">
+<div>
+<div class="flex justify-between items-start mb-1">
+<span class="text-lg font-black text-primary public-sans leading-none">90.010/2026</span>
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded-full text-[9px] font-bold">AGUARDANDO</span>
+</div>
+<h5 class="text-[9px] font-bold text-slate-400 uppercase tracking-tight">DOMINGOS</h5>
+<p class="text-sm font-bold text-on-surface leading-tight mt-1 line-clamp-1">MATERIAL HOSPITALAR</p>
+</div>
+<div class="flex items-center gap-2 text-[11px] text-outline border-t pt-2 mt-auto">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>06/04/2026 • 09H</span>
+</div>
+</div>
+<div class="bg-white border border-outline-variant p-4 rounded-xl flex flex-col justify-between hover:bg-surface-container-low transition-colors shadow-sm min-h-0">
+<div>
+<div class="flex justify-between items-start mb-1">
+<span class="text-lg font-black text-primary public-sans leading-none">90.055/2025</span>
+<span class="px-2 py-0.5 bg-tertiary-container text-on-tertiary-container rounded-full text-[9px] font-bold">DECISÃO</span>
+</div>
+<h5 class="text-[9px] font-bold text-slate-400 uppercase tracking-tight">RICARDO</h5>
+<p class="text-sm font-bold text-on-surface leading-tight mt-1 line-clamp-1">LIVROS PORTUGUES E MATEMATICA</p>
+</div>
+<div class="flex items-center gap-2 text-[11px] text-outline border-t pt-2 mt-auto">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>16/03/2026</span>
+</div>
+</div>
+<div class="bg-white border border-outline-variant p-4 rounded-xl flex flex-col justify-between hover:bg-surface-container-low transition-colors shadow-sm min-h-0">
+<div>
+<div class="flex justify-between items-start mb-1">
+<span class="text-lg font-black text-primary public-sans leading-none">90.098/2025</span>
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded-full text-[9px] font-bold">AGUARDANDO</span>
+</div>
+<h5 class="text-[9px] font-bold text-slate-400 uppercase tracking-tight">THAIS</h5>
+<p class="text-sm font-bold text-on-surface leading-tight mt-1 line-clamp-1">UNIFORMES SECONTRU</p>
+</div>
+<div class="flex items-center gap-2 text-[11px] text-outline border-t pt-2 mt-auto">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>13/04/2026 • 10H</span>
+</div>
+</div>
+<!-- 16th slot -->
+<div class="bg-slate-200/40 border border-dashed border-slate-300 p-4 rounded-xl flex flex-col items-center justify-center text-slate-400 min-h-0">
+<span class="material-symbols-outlined text-4xl mb-2 opacity-30">more_horiz</span>
+<p class="text-[10px] font-bold uppercase tracking-widest opacity-60">Aguardando Lote</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer Bar (Compact) -->
+<footer class="bg-white px-12 py-3 border-t border-surface-variant flex justify-between items-center text-[11px] font-medium text-outline shrink-0">
+<div class="flex items-center gap-6">
+<span class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-primary"></span> 01 Em Andamento</span>
+<span class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-error"></span> 01 Suspenso</span>
+<span class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-tertiary"></span> 03 Decisão/Análise</span>
+<span class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-slate-300"></span> 10 Aguardando</span>
+</div>
+<div>
+            Atualização em tempo real: <span class="font-bold text-on-surface">19 de Março de 2026, 10:45:12</span>
 </div>
 </footer>
+</main>
 </body></html>
