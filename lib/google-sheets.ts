@@ -36,14 +36,15 @@ export async function fetchDashboardData(sheetUrl?: string): Promise<DashboardIt
     ];
   }
 
-  try {
-    const response = await fetch(sheetUrl);
-    const csvData = await response.text();
-    return parseCsv(csvData);
-  } catch (error) {
-    console.error("Error fetching Google Sheets data:", error);
-    return [];
+  const response = await fetch(sheetUrl);
+  if (!response.ok) {
+    throw new Error(`HTTP ${response.status} — a planilha pode não estar publicada como CSV público`);
   }
+  const csvData = await response.text();
+  if (csvData.trim().startsWith("<!DOCTYPE") || csvData.trim().startsWith("<html")) {
+    throw new Error("A URL retornou uma página HTML (provavelmente login do Google). Publique a planilha via Arquivo → Publicar na Web → CSV");
+  }
+  return parseCsv(csvData);
 }
 
 function parseCsv(csv: string): DashboardItem[] {
