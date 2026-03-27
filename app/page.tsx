@@ -8,16 +8,23 @@ export default function DashboardPage() {
   const [currentTime, setCurrentTime] = useState("");
   const [items, setItems] = useState<DashboardItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   const updateData = async () => {
     try {
-      // Adding a timestamp to bust cache from Google Sheets 'Publish to Web'
       const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR3RY7fMkibiDIN-rN6wcUDI8nBW4bi0m-6Xx3DYnNfsWvVdQ2fFfTTODAdIMRCIyHW83my8yEJBOiR/pub?output=csv";
       const bustUrl = `${csvUrl}&t=${new Date().getTime()}`;
       const data = await fetchDashboardData(bustUrl);
+      if (data.length === 0) {
+        setError("Nenhum dado retornado. Verifique se a planilha está publicada como CSV e possui dados.");
+      } else {
+        setError(null);
+      }
       setItems(data);
-    } catch (error) {
-      console.error("Failed to fetch dashboard data:", error);
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err);
+      console.error("Failed to fetch dashboard data:", msg);
+      setError(`Falha ao conectar com a planilha: ${msg}`);
     } finally {
       setLoading(false);
     }
@@ -138,6 +145,23 @@ export default function DashboardPage() {
             <div className="h-1 w-16 bg-primary mt-1"></div>
           </div>
           
+          {error && (
+            <div className="mb-3 flex items-center gap-3 bg-error-container text-on-error-container px-4 py-3 rounded-xl border border-error/20 shrink-0">
+              <span className="material-symbols-outlined text-xl shrink-0">error</span>
+              <div className="flex-1 min-w-0">
+                <p className="text-xs font-bold uppercase tracking-wide">Erro ao carregar dados da planilha</p>
+                <p className="text-[11px] font-medium mt-0.5 truncate">{error}</p>
+                <p className="text-[10px] mt-0.5 opacity-70">Verifique: Arquivo → Compartilhar → Publicar na Web → CSV</p>
+              </div>
+              <button
+                onClick={updateData}
+                className="shrink-0 flex items-center gap-1 bg-error text-white text-[10px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-lg hover:opacity-90 transition-opacity"
+              >
+                <span className="material-symbols-outlined text-sm">refresh</span>
+                Tentar novamente
+              </button>
+            </div>
+          )}
           {loading ? (
             <div className="flex-1 flex items-center justify-center">
               <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary"></div>
