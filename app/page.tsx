@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { fetchDashboardData, DashboardItem } from "@/lib/google-sheets";
@@ -9,7 +11,10 @@ export default function DashboardPage() {
 
   const updateData = async () => {
     try {
-      const data = await fetchDashboardData("https://docs.google.com/spreadsheets/d/e/2PACX-1vR3RY7fMkibiDIN-rN6wcUDI8nBW4bi0m-6Xx3DYnNfsWvVdQ2fFfTTODAdIMRCIyHW83my8yEJBOiR/pub?output=csv");
+      // Adding a timestamp to bust cache from Google Sheets 'Publish to Web'
+      const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR3RY7fMkibiDIN-rN6wcUDI8nBW4bi0m-6Xx3DYnNfsWvVdQ2fFfTTODAdIMRCIyHW83my8yEJBOiR/pub?output=csv";
+      const bustUrl = `${csvUrl}&t=${new Date().getTime()}`;
+      const data = await fetchDashboardData(bustUrl);
       setItems(data);
     } catch (error) {
       console.error("Failed to fetch dashboard data:", error);
