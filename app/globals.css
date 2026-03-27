@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #f7f9fb;
+    color: #2a3439;
+    margin: 0;
+    overflow: hidden;
+    height: 1080px;
+    width: 1920px;
+  }
+}
+
+.public-sans {
+  font-family: var(--font-public-sans), sans-serif;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
