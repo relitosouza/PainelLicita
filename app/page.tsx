@@ -57,7 +57,7 @@ export default function DashboardPage() {
   const featuredItems = items.filter((i: DashboardItem) => i.highlight === "primary" || i.status === "EM ANDAMENTO").slice(0, 2);
 
   return (
-    <main className="w-[1920px] h-[1080px] flex flex-col bg-surface overflow-hidden">
+    <main className="w-screen h-screen flex flex-col bg-surface overflow-hidden select-none">
       {/* Cabeçalho */}
       <header className="flex justify-between items-center w-full px-12 py-4 bg-white border-b border-surface-variant/30 shrink-0">
         <div className="flex items-center gap-4">
@@ -144,7 +144,7 @@ export default function DashboardPage() {
               <p className="ml-4 text-primary font-bold">Carregando dados...</p>
             </div>
           ) : (
-            <div className="grid grid-cols-4 gap-4 flex-1">
+            <div className="grid grid-cols-4 grid-rows-4 gap-4 flex-1 min-h-0">
               {items.slice(0, 15).map((item: DashboardItem, idx: number) => (
                 <div
                   key={idx}
