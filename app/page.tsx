@@ -25,7 +25,7 @@ export default function DashboardPage() {
 
   useEffect(() => {
     updateData();
-    const dataInterval = setInterval(updateData, 30000); // Update every 30 seconds
+    const dataInterval = setInterval(updateData, 10000); // Update every 10 seconds
 
     const timer = setInterval(() => {
       const now = new Date();
@@ -54,7 +54,20 @@ export default function DashboardPage() {
     waiting: items.filter((i: DashboardItem) => i.status === "AGUARDANDO").length,
   };
 
-  const featuredItems = items.filter((i: DashboardItem) => i.highlight === "primary" || i.status === "EM ANDAMENTO").slice(0, 2);
+  const isToday = (dateStr: string) => {
+    const today = new Date();
+    const day = String(today.getDate()).padStart(2, '0');
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const year = today.getFullYear();
+    const todayFormat = `${day}/${month}/${year}`;
+    return dateStr.includes(todayFormat);
+  };
+
+  const featuredItems = items.filter((i: DashboardItem) => 
+    i.highlight === "primary" || 
+    i.status === "EM ANDAMENTO" || 
+    isToday(i.date)
+  ).slice(0, 2);
 
   return (
     <main className="w-screen h-screen flex flex-col bg-surface overflow-hidden select-none">
@@ -145,7 +158,10 @@ export default function DashboardPage() {
             </div>
           ) : (
             <div className="grid grid-cols-4 grid-rows-4 gap-4 flex-1 min-h-0">
-              {items.slice(0, 15).map((item: DashboardItem, idx: number) => (
+              {items
+                .filter((i: DashboardItem) => !featuredItems.some(f => f.id === i.id))
+                .slice(0, 15)
+                .map((item: DashboardItem, idx: number) => (
                 <div
                   key={idx}
                   className={`bg-white border ${
