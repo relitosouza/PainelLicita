@@ -182,7 +182,7 @@ export default function DashboardPage() {
                 >
                   <div>
                     <div className="flex justify-between items-start mb-1">
-                      <span className={`text-lg font-black ${item.highlight === "error" ? "text-error" : "text-primary"} public-sans leading-none`}>
+                      <span className={`text-xl font-black ${item.highlight === "error" ? "text-error" : "text-primary"} public-sans leading-none`}>
                         {item.id}
                       </span>
                       <span className={`px-2 py-0.5 ${
@@ -190,23 +190,23 @@ export default function DashboardPage() {
                         item.status === "SUSPENSO" ? "bg-error-container text-on-error-container" :
                         item.status === "EM ANÁLISE" || item.status === "DECISÃO" ? "bg-tertiary-container text-on-tertiary-container" :
                         "bg-secondary-container text-on-secondary-container"
-                      } rounded-full text-[9px] font-bold`}>
+                      } rounded-full text-[11px] font-bold`}>
                         {item.status}
                       </span>
                     </div>
-                    <h5 className="text-[9px] font-bold text-slate-400 uppercase tracking-tight">{item.responsible}</h5>
-                    <p className="text-on-surface leading-tight mt-1 line-clamp-1 text-lg font-black">
+                    <h5 className="text-[11px] font-bold uppercase tracking-tight" style={{color:"#E53400"}}>{item.responsible}</h5>
+                    <p className="text-on-surface leading-tight mt-1 line-clamp-1 text-xl font-black">
                       {item.object}
                     </p>
                   </div>
                   <div className={`flex flex-col gap-0.5 border-t ${item.highlight === "primary" ? "border-primary/20" : item.highlight === "error" ? "border-error-container/20" : ""} pt-2 mt-auto`}>
                     {item.subStatus && (
-                      <div className="flex items-center gap-2 text-[9px] text-tertiary font-bold">
+                      <div className="flex items-center gap-2 text-[11px] text-tertiary font-bold">
                         <span className="material-symbols-outlined text-[10px]">description</span>
                         <span>{item.subStatus}</span>
                       </div>
                     )}
-                    <div className={`flex items-center gap-2 text-[11px] ${item.highlight ? "font-bold" : "text-outline"}`}>
+                    <div className={`flex items-center gap-2 text-[13px] font-bold`} style={{color:"#E53400"}}>
                       <span className="material-symbols-outlined text-sm">
                         {item.highlight === "primary" ? "timer" : item.highlight === "error" ? "error" : "calendar_today"}
                       </span>
