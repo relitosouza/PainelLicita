@@ -61,9 +61,9 @@ export default function EncerradosPage() {
       <header className="flex justify-between items-center w-full px-12 py-4 bg-white border-b border-surface-variant/30 shrink-0">
         <div className="flex items-center gap-4">
           <Link href="/" className="hover:opacity-80 transition-opacity">
-            <div className="relative w-10 h-10 overflow-hidden bg-white flex items-center justify-center border border-surface-variant rounded-sm">
+            <div className="relative w-14 h-14 overflow-hidden bg-white flex items-center justify-center border border-surface-variant rounded-sm">
                 <Image
-                src="https://lh3.googleusercontent.com/aida/ADBb0uhOWIc4NPXgGmEjDhzroIvUO-ymU32Dl3lI8Ndn5Jeic4bkytZf-XlTew4_vZjcdRG0nl7cFPqbF-Z5I0V9YsORyXtqH0QONc0dnBQ1qQi3gEWLxAlBO5l-MABfpMIjXAiUEC3XDixCyjkR2Qi5C-jzvp-eotWeZhWonO8XXK0Z5eZBC2dV-Rp6OVz_zuxgPFjxH4VDtoOxbI8JJPw4NPbDG-jkKB1GTISVMQk5Jf40UMcZHRNsMfkosQuFO1blanaC_T38PD4MFQ"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Brasao_Osasco.png/300px-Brasao_Osasco.png"
                 alt="Brasão Oficial da Prefeitura de Osasco"
                 fill
                 className="object-contain"
@@ -71,10 +71,10 @@ export default function EncerradosPage() {
             </div>
           </Link>
           <div>
-            <h1 className="text-2xl font-black text-slate-900 public-sans">
+            <h1 className="text-3xl font-black text-slate-900 public-sans">
                 Encerrados 2026
             </h1>
-            <p className="text-xs font-semibold text-slate-500 leading-tight">
+            <p className="text-[15px] font-semibold text-slate-500 leading-tight">
                 Histórico de Pregões Realizados
             </p>
           </div>
@@ -126,15 +126,15 @@ export default function EncerradosPage() {
                 >
                 <div>
                     <div className="flex justify-between items-start mb-2">
-                        <span className="text-xl font-black text-slate-400 public-sans leading-none">
+                        <span className="text-2xl font-black text-slate-400 public-sans leading-none">
                             {item.pe}
                         </span>
-                        <span className="px-2 py-0.5 bg-slate-100 text-slate-500 rounded-full text-[10px] font-bold uppercase">
+                        <span className="px-2 py-1 bg-slate-100 text-slate-500 rounded-full text-[13px] font-bold uppercase">
                             Encerrado
                         </span>
                     </div>
-                    <h5 className="text-[11px] font-bold uppercase tracking-tight text-primary-variant">{item.responsible}</h5>
-                    <p className="text-on-surface leading-tight mt-1 mb-4 text-xl font-black line-clamp-2 min-h-[3rem]">
+                    <h5 className="text-[14px] font-bold uppercase tracking-tight text-primary-variant">{item.responsible}</h5>
+                    <p className="text-on-surface leading-tight mt-1 mb-4 text-2xl font-black line-clamp-2 min-h-[4rem]">
                         {item.object}
                     </p>
                 </div>
@@ -142,23 +142,23 @@ export default function EncerradosPage() {
                 <div className="flex flex-col gap-2 mt-auto pt-3 border-t border-surface-variant/30">
                     <div className="grid grid-cols-2 gap-2">
                         <div className="flex flex-col">
-                            <span className="text-[9px] font-bold text-outline uppercase tracking-wider">Abertura</span>
-                            <span className="text-[11px] font-black text-on-surface">{item.openingDate || "-"}</span>
+                            <span className="text-[12px] font-bold text-outline uppercase tracking-wider">Abertura</span>
+                            <span className="text-[14px] font-black text-on-surface">{item.openingDate || "-"}</span>
                         </div>
                         <div className="flex flex-col items-end">
-                            <span className="text-[9px] font-bold text-outline uppercase tracking-wider text-right">Encerramento</span>
-                            <span className="text-[11px] font-black text-on-surface text-right">{item.closureDate || "-"}</span>
+                            <span className="text-[12px] font-bold text-outline uppercase tracking-wider text-right">Encerramento</span>
+                            <span className="text-[14px] font-black text-on-surface text-right">{item.closureDate || "-"}</span>
                         </div>
                     </div>
                     <div className="bg-primary/5 p-2 rounded-lg">
                         <div className="flex flex-col">
-                            <span className="text-[9px] font-bold text-primary uppercase tracking-wider">Homologação</span>
-                            <span className="text-[11px] font-black text-primary">{item.homologationDate || "Pendente"}</span>
+                            <span className="text-[12px] font-bold text-primary uppercase tracking-wider">Homologação</span>
+                            <span className="text-[14px] font-black text-primary">{item.homologationDate || "Pendente"}</span>
                         </div>
                     </div>
                     {item.observation && (
-                        <div className="flex items-start gap-1 text-[10px] text-tertiary font-medium italic mt-1 line-clamp-2">
-                            <span className="material-symbols-outlined text-[12px] mt-0.5">info</span>
+                        <div className="flex items-start gap-1 text-[13px] text-tertiary font-medium italic mt-1 line-clamp-2">
+                            <span className="material-symbols-outlined text-[14px] mt-0.5">info</span>
                             <span>{item.observation}</span>
                         </div>
                     )}
@@ -169,7 +169,7 @@ export default function EncerradosPage() {
         )}
       </div>
 
-      <footer className="bg-white px-12 py-3 border-t border-surface-variant flex justify-between items-center text-[11px] font-medium text-outline shrink-0">
+      <footer className="bg-white px-12 py-3 border-t border-surface-variant flex justify-between items-center text-[14px] font-medium text-outline shrink-0">
         <div>
           Total de <span className="font-bold text-on-surface">{items.length}</span> pregões encerrados em 2026
         </div>
