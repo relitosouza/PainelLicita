@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { LoadingOverlay } from "@/app/components/LoadingOverlay";
 import { fetchDashboardData, DashboardItem } from "@/lib/google-sheets";
 
 export default function AllItemsPage() {
@@ -124,8 +125,11 @@ export default function AllItemsPage() {
       </header>
 
       <div className="flex-1 flex flex-col px-12 py-6 gap-6 min-h-0 overflow-y-auto custom-scrollbar">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {remainingItems.map((item: DashboardItem, idx: number) => (
+        {loading ? (
+          <LoadingOverlay message="Carregando Pregões..." />
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {remainingItems.map((item: DashboardItem, idx: number) => (
             <div
               key={idx}
               className={`bg-white border ${
@@ -172,7 +176,8 @@ export default function AllItemsPage() {
               </div>
             </div>
           ))}
-        </div>
+          </div>
+        )}
       </div>
 
       <footer className="bg-white px-12 py-3 border-t border-surface-variant flex justify-between items-center text-[11px] font-medium text-outline shrink-0">

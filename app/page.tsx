@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { LoadingOverlay } from "@/app/components/LoadingOverlay";
 import { fetchDashboardData, DashboardItem } from "@/lib/google-sheets";
 
 export default function DashboardPage() {
@@ -188,10 +189,7 @@ export default function DashboardPage() {
             </div>
           )}
           {loading ? (
-            <div className="flex-1 flex items-center justify-center">
-              <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary"></div>
-              <p className="ml-4 text-primary font-bold">Carregando dados...</p>
-            </div>
+            <LoadingOverlay message="Sincronizando Dashboard..." />
           ) : (
             <div className="grid grid-cols-4 grid-rows-4 gap-4 flex-1 min-h-0">
               {items

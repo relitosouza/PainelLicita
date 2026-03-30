@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { LoadingOverlay } from "@/app/components/LoadingOverlay";
 import { fetchClosedData, ClosedItem } from "@/lib/google-sheets";
 
 export default function EncerradosPage() {
@@ -113,10 +114,7 @@ export default function EncerradosPage() {
         )}
 
         {loading ? (
-            <div className="flex-1 flex flex-col items-center justify-center opacity-50">
-                <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4"></div>
-                <p className="font-bold text-primary uppercase tracking-widest text-xs">Carregando Histórico...</p>
-            </div>
+            <LoadingOverlay message="Sincronizando Histórico..." />
         ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {items.map((item, idx) => (
