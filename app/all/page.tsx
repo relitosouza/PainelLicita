@@ -160,19 +160,19 @@ export default function AllItemsPage() {
                   {item.object}
                 </p>
               </div>
-              <div className={`flex flex-col gap-1.5 border-t ${item.highlight === "primary" ? "border-primary/20" : item.highlight === "error" ? "border-error-container/20" : "border-outline-variant/30"} pt-3 mt-auto`}>
-                {item.subStatus && (
-                  <div className="flex items-center gap-2 text-[11px] text-tertiary font-bold">
-                    <span className="material-symbols-outlined text-[12px]">description</span>
-                    <span>{item.subStatus}</span>
-                  </div>
-                )}
-                <div className={`flex items-center justify-end gap-2 text-[13px] font-bold`} style={{color:"#E53400"}}>
-                  <span className="material-symbols-outlined text-sm">
+              <div className={`flex items-center justify-between border-t ${item.highlight === "primary" ? "border-primary/20" : item.highlight === "error" ? "border-error-container/20" : "border-outline-variant/30"} pt-4 mt-auto`}>
+                <div className={`flex items-center gap-1.5 text-[15px] font-black shrink-0`} style={{color:"#E53400"}}>
+                  <span className="material-symbols-outlined text-[16px]">
                     {item.highlight === "primary" ? "timer" : item.highlight === "error" ? "error" : "calendar_today"}
                   </span>
                   <span>{item.date}</span>
                 </div>
+                {item.subStatus && (
+                  <div className="flex items-center gap-1.5 text-[11px] text-tertiary font-bold overflow-hidden">
+                    <span className="material-symbols-outlined text-[12px] shrink-0">description</span>
+                    <span className="truncate">{item.subStatus}</span>
+                  </div>
+                )}
               </div>
             </div>
           ))}
