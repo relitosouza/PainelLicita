@@ -77,7 +77,7 @@ export default function DashboardPage() {
     i.highlight === "primary" || 
     i.status === "EM ANDAMENTO" || 
     isToday(i.date)
-  ).slice(0, 2);
+  ).slice(0, 4);
 
   return (
     <main className="w-screen h-screen flex flex-col bg-surface overflow-hidden select-none">
