@@ -55,6 +55,26 @@ export default function AllItemsPage() {
     };
   }, []);
 
+  const isToday = (dateStr: string) => {
+    const today = new Date();
+    const day = String(today.getDate()).padStart(2, '0');
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const year = today.getFullYear();
+    const todayFormat = `${day}/${month}/${year}`;
+    return dateStr.includes(todayFormat);
+  };
+
+  const featuredItems = items.filter((i: DashboardItem) => 
+    i.highlight === "primary" || 
+    i.status === "EM ANDAMENTO" || 
+    isToday(i.date)
+  ).slice(0, 2);
+
+  // Filtramos os itens que já aparecem no dashboard principal (2 destaques + 15 da grade)
+  const remainingItems = items
+    .filter((i: DashboardItem) => !featuredItems.some(f => f.id === i.id))
+    .slice(15);
+
   return (
     <main className="w-screen h-screen flex flex-col bg-surface overflow-hidden select-none">
       <header className="flex justify-between items-center w-full px-12 py-4 bg-white border-b border-surface-variant/30 shrink-0">
@@ -71,7 +91,7 @@ export default function AllItemsPage() {
           </Link>
           <div>
             <h1 className="text-2xl font-black text-slate-900 public-sans">
-                Lista Completa de Pregões
+                Pregões Adicionais
             </h1>
             <p className="text-xs font-semibold text-slate-500 leading-tight">
                 Prefeitura Municipal de Osasco
@@ -101,7 +121,7 @@ export default function AllItemsPage() {
 
       <div className="flex-1 flex flex-col px-12 py-6 gap-6 min-h-0 overflow-y-auto custom-scrollbar">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {items.map((item: DashboardItem, idx: number) => (
+          {remainingItems.map((item: DashboardItem, idx: number) => (
             <div
               key={idx}
               className={`bg-white border ${
@@ -152,7 +172,7 @@ export default function AllItemsPage() {
 
       <footer className="bg-white px-12 py-3 border-t border-surface-variant flex justify-between items-center text-[11px] font-medium text-outline shrink-0">
         <div>
-          Total de <span className="font-bold text-on-surface">{items.length}</span> pregões registrados
+          Exibindo <span className="font-bold text-on-surface">{remainingItems.length}</span> pregões adicionais (total na planilha: {items.length})
         </div>
         <div>
           Última atualização: <span className="font-bold text-on-surface">{currentTime}</span>
