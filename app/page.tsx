@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { fetchDashboardData, DashboardItem } from "@/lib/google-sheets";
 
 export default function DashboardPage() {
@@ -232,12 +233,12 @@ export default function DashboardPage() {
                 </div>
               ))}
               {/* 16th slot */}
-              <div className="bg-slate-200/40 border border-dashed border-slate-300 p-4 rounded-xl flex flex-col items-center justify-center text-slate-400 min-h-0">
+              <Link href="/all" className="bg-slate-200/40 border border-dashed border-slate-300 p-4 rounded-xl flex flex-col items-center justify-center text-slate-400 min-h-0 hover:bg-slate-200 transition-colors cursor-pointer">
                 <span className="material-symbols-outlined text-4xl mb-2 opacity-30">more_horiz</span>
                 <p className="text-[10px] font-bold uppercase tracking-widest opacity-60">
-                  {items.length > 15 ? "Ver mais lotes" : "Aguardando Lote"}
+                  {items.length > 15 ? "Ver mais" : "Aguardando Lote"}
                 </p>
-              </div>
+              </Link>
             </div>
           )}
         </section>
