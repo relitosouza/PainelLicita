@@ -60,6 +60,7 @@ export default function DashboardPage() {
     suspended: items.filter((i: DashboardItem) => i.status === "SUSPENSO").length,
     analysis: items.filter((i: DashboardItem) => i.status === "EM ANÁLISE" || i.status === "DECISÃO").length,
     waiting: items.filter((i: DashboardItem) => i.status === "AGUARDANDO").length,
+    waitingEdital: items.filter((i: DashboardItem) => i.status === "AGUARDANDO EDITAL").length,
   };
 
   const isToday = (dateStr: string) => {
@@ -206,6 +207,7 @@ export default function DashboardPage() {
                         item.status === "EM ANDAMENTO" ? "bg-primary-container text-on-primary-container" :
                         item.status === "SUSPENSO" ? "bg-error-container text-on-error-container" :
                         item.status === "EM ANÁLISE" || item.status === "DECISÃO" ? "bg-tertiary-container text-on-tertiary-container" :
+                        item.status === "AGUARDANDO EDITAL" ? "bg-yellow-200 text-yellow-900 border border-yellow-300" :
                         "bg-secondary-container text-on-secondary-container"
                       } rounded-full text-[11px] font-bold`}>
                         {item.status}
@@ -258,6 +260,9 @@ export default function DashboardPage() {
           </span>
           <span className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-slate-300"></span> {stats.waiting.toString().padStart(2, '0')} Aguardando
+          </span>
+          <span className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-yellow-400"></span> {stats.waitingEdital.toString().padStart(2, '0')} Aguardando Edital
           </span>
         </div>
         <div>

@@ -141,6 +141,7 @@ export default function AllItemsPage() {
                     item.status === "EM ANDAMENTO" ? "bg-primary-container text-on-primary-container" :
                     item.status === "SUSPENSO" ? "bg-error-container text-on-error-container" :
                     item.status === "EM ANÁLISE" || item.status === "DECISÃO" ? "bg-tertiary-container text-on-tertiary-container" :
+                    item.status === "AGUARDANDO EDITAL" ? "bg-yellow-200 text-yellow-900 border border-yellow-300" :
                     "bg-secondary-container text-on-secondary-container"
                   } rounded-full text-[11px] font-bold shadow-sm`}>
                     {item.status}
