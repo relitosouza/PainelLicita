@@ -144,7 +144,7 @@ export default function DashboardPage() {
                       PROCESSO EM DESTAQUE
                     </p>
                     <h4 className="text-xl font-black text-on-surface public-sans">PE {item.id}</h4>
-                    <p className="text-xs text-on-surface-variant font-medium">
+                    <p className="text-[17px] text-on-surface-variant font-medium">
                       {item.responsible} | {item.object}
                     </p>
                   </div>
@@ -221,7 +221,7 @@ export default function DashboardPage() {
                         {item.status}
                       </span>
                     </div>
-                    <h5 className="text-[11px] font-bold uppercase tracking-tight" style={{color:"#E53400"}}>{item.responsible}</h5>
+                    <h5 className="text-[16px] font-bold uppercase tracking-tight" style={{color:"#E53400"}}>{item.responsible}</h5>
                     <p className="text-on-surface leading-tight mt-1 line-clamp-1 text-xl font-black">
                       {item.object}
                     </p>
@@ -233,7 +233,7 @@ export default function DashboardPage() {
                         <span>{item.subStatus}</span>
                       </div>
                     )}
-                    <div className={`flex items-center gap-2 text-[13px] font-bold`} style={{color:"#E53400"}}>
+                    <div className={`flex items-center gap-2 text-[18px] font-bold`} style={{color:"#E53400"}}>
                       <span className="material-symbols-outlined text-sm">
                         {item.highlight === "primary" ? "timer" : item.highlight === "error" ? "error" : "calendar_today"}
                       </span>
