@@ -64,7 +64,7 @@ export default function EncerradosPage() {
           <Link href="/" className="hover:opacity-80 transition-opacity">
             <div className="relative w-14 h-14 overflow-hidden bg-white flex items-center justify-center border border-surface-variant rounded-sm">
                 <Image
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Brasao_Osasco.png/300px-Brasao_Osasco.png"
+                src="/brasao.png"
                 alt="Brasão Oficial da Prefeitura de Osasco"
                 fill
                 className="object-contain"

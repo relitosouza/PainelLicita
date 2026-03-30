@@ -83,7 +83,7 @@ export default function AllItemsPage() {
           <Link href="/" className="hover:opacity-80 transition-opacity">
             <div className="relative w-10 h-10 overflow-hidden bg-white flex items-center justify-center border border-surface-variant rounded-sm">
                 <Image
-                src="https://lh3.googleusercontent.com/aida/ADBb0uhOWIc4NPXgGmEjDhzroIvUO-ymU32Dl3lI8Ndn5Jeic4bkytZf-XlTew4_vZjcdRG0nl7cFPqbF-Z5I0V9YsORyXtqH0QONc0dnBQ1qQi3gEWLxAlBO5l-MABfpMIjXAiUEC3XDixCyjkR2Qi5C-jzvp-eotWeZhWonO8XXK0Z5eZBC2dV-Rp6OVz_zuxgPFjxH4VDtoOxbI8JJPw4NPbDG-jkKB1GTISVMQk5Jf40UMcZHRNsMfkosQuFO1blanaC_T38PD4MFQ"
+                src="/brasao.png"
                 alt="Brasão Oficial da Prefeitura de Osasco"
                 fill
                 className="object-contain"

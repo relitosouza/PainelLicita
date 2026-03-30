@@ -12,7 +12,7 @@ export function LoadingOverlay({ message = "Carregando Dados..." }: { message?: 
         <div className="absolute inset-0 flex items-center justify-center p-4">
           <div className="relative w-12 h-12 opacity-80 animate-pulse">
             <Image
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Brasao_Osasco.png/300px-Brasao_Osasco.png"
+              src="/brasao.png"
               alt="Carregando..."
               fill
               className="object-contain"
