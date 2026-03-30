@@ -95,17 +95,27 @@ export default function DashboardPage() {
             Prefeitura Municipal de Osasco
           </h1>
         </div>
-        <div className="flex items-center gap-4">
-          <div className="flex flex-col items-end">
-            <span className="text-[10px] font-bold text-primary uppercase tracking-widest leading-tight">
-              Painel Ativo
-            </span>
-            <span className="text-xs font-semibold text-slate-500 leading-tight">
-              Secretaria de Compras
-            </span>
-          </div>
-          <div className="bg-primary/10 p-1.5 rounded-lg text-primary">
-            <span className="material-symbols-outlined text-lg">wifi_tethering</span>
+        <div className="flex items-center gap-6">
+          <nav className="flex items-center bg-surface-container-low p-1 rounded-xl gap-1">
+              <Link href="/" className="px-4 py-2 rounded-lg text-[11px] font-bold uppercase tracking-widest bg-white text-primary shadow-sm shadow-primary/10">
+                  Dashboard
+              </Link>
+              <Link href="/encerrados" className="px-4 py-2 rounded-lg text-[11px] font-bold uppercase tracking-widest text-outline hover:bg-white transition-colors">
+                  Encerrados
+              </Link>
+          </nav>
+          <div className="flex items-center gap-4 border-l border-surface-variant pl-4">
+            <div className="flex flex-col items-end">
+              <span className="text-[10px] font-bold text-primary uppercase tracking-widest leading-tight">
+                Painel Ativo
+              </span>
+              <span className="text-xs font-semibold text-slate-500 leading-tight">
+                Secretaria de Compras
+              </span>
+            </div>
+            <div className="bg-primary/10 p-1.5 rounded-lg text-primary">
+              <span className="material-symbols-outlined text-lg">wifi_tethering</span>
+            </div>
           </div>
         </div>
       </header>

@@ -99,11 +99,15 @@ export default function AllItemsPage() {
           </div>
         </div>
         <div className="flex items-center gap-6">
-            <Link href="/" className="flex items-center gap-2 text-primary hover:text-primary-variant font-bold uppercase text-[11px] tracking-widest bg-primary/5 px-4 py-2 rounded-lg transition-colors">
-                <span className="material-symbols-outlined text-lg">dashboard</span>
-                Dashboard
-            </Link>
-            <div className="flex items-center gap-4 border-l border-surface-variant pl-6">
+            <nav className="flex items-center bg-surface-container-low p-1 rounded-xl gap-1">
+                <Link href="/" className="px-4 py-2 rounded-lg text-[11px] font-bold uppercase tracking-widest text-outline hover:bg-white transition-colors">
+                    Dashboard
+                </Link>
+                <Link href="/encerrados" className="px-4 py-2 rounded-lg text-[11px] font-bold uppercase tracking-widest text-outline hover:bg-white transition-colors">
+                    Encerrados
+                </Link>
+            </nav>
+            <div className="flex items-center gap-4 border-l border-surface-variant pl-4">
                 <div className="flex flex-col items-end">
                 <span className="text-[10px] font-bold text-primary uppercase tracking-widest leading-tight">
                     Painel Ativo
