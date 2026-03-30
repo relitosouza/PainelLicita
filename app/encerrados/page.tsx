@@ -149,9 +149,9 @@ export default function EncerradosPage() {
                         </div>
                     </div>
                     <div className="bg-primary/5 p-2 rounded-lg">
-                        <div className="flex flex-col">
-                            <span className="text-[12px] font-bold text-primary uppercase tracking-wider">Homologação</span>
-                            <span className="text-[14px] font-black text-primary">{item.homologationDate || "Pendente"}</span>
+                        <div className="flex flex-col items-end">
+                            <span className="text-[12px] font-bold text-primary uppercase tracking-wider text-right">Homologação</span>
+                            <span className="text-[14px] font-black text-primary text-right">{item.homologationDate || "Pendente"}</span>
                         </div>
                     </div>
                     {item.observation && (

@@ -233,7 +233,7 @@ export default function DashboardPage() {
                         <span>{item.subStatus}</span>
                       </div>
                     )}
-                    <div className={`flex items-center gap-2 text-[18px] font-bold`} style={{color:"#E53400"}}>
+                    <div className={`flex items-center justify-end gap-2 text-[18px] font-bold`} style={{color:"#E53400"}}>
                       <span className="material-symbols-outlined text-sm">
                         {item.highlight === "primary" ? "timer" : item.highlight === "error" ? "error" : "calendar_today"}
                       </span>
