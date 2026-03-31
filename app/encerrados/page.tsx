@@ -131,7 +131,7 @@ export default function EncerradosPage() {
                             Encerrado
                         </span>
                     </div>
-                    <h5 className="text-[14px] font-bold uppercase tracking-tight text-primary-variant">{item.responsible}</h5>
+                    <h5 className="text-[14px] font-bold uppercase tracking-tight text-black">{item.responsible}</h5>
                     <p className="text-on-surface leading-tight mt-1 mb-4 text-2xl font-black line-clamp-2 min-h-[4rem]">
                         {item.object}
                     </p>

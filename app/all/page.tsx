@@ -155,7 +155,7 @@ export default function AllItemsPage() {
                     {item.status}
                   </span>
                 </div>
-                <h5 className="text-[11px] font-bold uppercase tracking-tight" style={{color:"#E53400"}}>{item.responsible}</h5>
+                <h5 className="text-[11px] font-bold uppercase tracking-tight text-black">{item.responsible}</h5>
                 <p className="text-on-surface leading-tight mt-1 mb-4 text-xl font-black">
                   {item.object}
                 </p>

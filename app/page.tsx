@@ -145,7 +145,7 @@ export default function DashboardPage() {
                     </p>
                     <h4 className="text-xl font-black text-on-surface public-sans">PE {item.id}</h4>
                     <p className="text-[17px] text-on-surface-variant font-medium">
-                      {item.responsible} | {item.object}
+                      <span className="text-black">{item.responsible}</span> | {item.object}
                     </p>
                   </div>
                 </div>
@@ -221,7 +221,7 @@ export default function DashboardPage() {
                         {item.status}
                       </span>
                     </div>
-                    <h5 className="text-[16px] font-bold uppercase tracking-tight" style={{color:"#E53400"}}>{item.responsible}</h5>
+                    <h5 className="text-[16px] font-bold uppercase tracking-tight text-black">{item.responsible}</h5>
                     <p className="text-on-surface leading-tight mt-1 line-clamp-1 text-xl font-black">
                       {item.object}
                     </p>
