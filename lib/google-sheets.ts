@@ -56,26 +56,29 @@ function parseCsv(csv: string): DashboardItem[] {
     if (!pe || pe === "PE") continue;
 
     let inferredStatus: DashboardItem["status"] = "AGUARDANDO";
-    let subStatus = "";
     let highlight: DashboardItem["highlight"] = undefined;
     const fullStatus = (csvStatus + " " + abertura).toUpperCase();
     
     if (fullStatus.includes("EDITAL")) {
       inferredStatus = "AGUARDANDO EDITAL";
-      subStatus = csvStatus;
     } else if (fullStatus.includes("SUSPENSO")) {
       inferredStatus = "SUSPENSO";
       highlight = "error";
-      subStatus = csvStatus;
     } else if (fullStatus.includes("DECISÃO")) {
       inferredStatus = "DECISÃO";
-      subStatus = csvStatus;
     } else if (fullStatus.includes("ANÁLISE") || fullStatus.includes("LAUDO")) {
       inferredStatus = "EM ANÁLISE";
-      subStatus = csvStatus;
     } else if (fullStatus.includes("ANDAMENTO")) {
       inferredStatus = "EM ANDAMENTO";
       highlight = "primary";
+    }
+
+    let subStatus = csvStatus;
+    // Se o subStatus for redundante com o status principal, limpamos para não poluir o card
+    if (subStatus.toUpperCase() === inferredStatus || 
+        (inferredStatus === "EM ANDAMENTO" && subStatus.toUpperCase().includes("ANDAMENTO")) ||
+        (inferredStatus === "AGUARDANDO" && subStatus.toUpperCase() === "AGUARDANDO")) {
+      subStatus = "";
     }
 
     result.push({

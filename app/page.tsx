@@ -147,6 +147,12 @@ export default function DashboardPage() {
                     <p className="text-[17px] text-on-surface-variant font-medium">
                       <span className="text-black">{item.responsible}</span> | {item.object}
                     </p>
+                    {item.subStatus && (
+                      <div className="flex items-center gap-1.5 mt-2 text-[12px] text-primary/70 font-bold bg-primary/5 px-2 py-1 rounded-md w-fit">
+                        <span className="material-symbols-outlined text-[14px]">info</span>
+                        <span>{item.subStatus}</span>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className="text-right">
