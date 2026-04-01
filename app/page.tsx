@@ -11,6 +11,7 @@ export default function DashboardPage() {
   const [items, setItems] = useState<DashboardItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [maxGridItems, setMaxGridItems] = useState(15);
 
   const updateData = async () => {
     try {
@@ -56,6 +57,34 @@ export default function DashboardPage() {
     };
   }, []);
 
+  useEffect(() => {
+    // Modo TV/Monitor: Calcula quantos itens cabem exatamente na tela sem scroll
+    const calculateGridSize = () => {
+      if (typeof window === "undefined") return;
+      // Altura aproximada do Header(90) + Destaques(180) + Título/Infos(50) + Footer(50) + Espaçamentos(120)
+      const fixedHeight = 490;
+      const availableHeight = Math.max(0, window.innerHeight - fixedHeight);
+      
+      // Altura estimada de cada cartão na grid + gap de espaçamento
+      const rowHeight = 150; 
+      const rows = Math.max(1, Math.floor(availableHeight / rowHeight));
+      
+      const width = window.innerWidth;
+      let cols = 1;
+      // Acompanha as mesmas media queries configuradas no Tailwind CSS
+      if (width >= 1280) cols = 4; // xl:
+      else if (width >= 1024) cols = 3; // lg:
+      else if (width >= 640) cols = 2; // sm:
+      
+      // O total de cartões visíveis será (linhas * colunas) - 1 (para o botão de "Ver mais")
+      setMaxGridItems(Math.max(1, (rows * cols) - 1));
+    };
+
+    calculateGridSize(); // Executa na montagem
+    window.addEventListener("resize", calculateGridSize);
+    return () => window.removeEventListener("resize", calculateGridSize);
+  }, []);
+
   const stats = {
     inProgress: items.filter((i: DashboardItem) => i.status === "EM ANDAMENTO").length,
     suspended: items.filter((i: DashboardItem) => i.status === "SUSPENSO").length,
@@ -80,23 +109,24 @@ export default function DashboardPage() {
   ).slice(0, 4);
 
   return (
-    <main className="w-screen h-screen flex flex-col bg-surface overflow-hidden select-none">
+    <main className="w-full min-h-screen flex flex-col bg-surface overflow-x-hidden md:h-screen md:overflow-hidden select-none">
       {/* Cabeçalho */}
-      <header className="flex justify-between items-center w-full px-12 py-4 bg-white border-b border-surface-variant/30 shrink-0">
+      <header className="flex flex-col md:flex-row justify-between items-center w-full px-4 md:px-12 py-4 gap-4 bg-white border-b border-surface-variant/30 shrink-0">
         <div className="flex items-center gap-4">
-          <div className="relative w-10 h-10 overflow-hidden bg-white flex items-center justify-center border border-surface-variant rounded-sm">
+          <div className="relative w-10 h-10 overflow-hidden bg-white flex items-center justify-center border border-surface-variant rounded-sm shrink-0">
             <Image
               src="/brasao.png"
               alt="Brasão Oficial da Prefeitura de Osasco"
               fill
               className="object-contain"
+              priority
             />
           </div>
-          <h1 className="text-2xl font-black text-slate-900 public-sans">
+          <h1 className="text-xl md:text-2xl font-black text-slate-900 public-sans text-center md:text-left break-words">
             Prefeitura Municipal de Osasco
           </h1>
         </div>
-        <div className="flex items-center gap-6">
+        <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
           <nav className="flex items-center bg-surface-container-low p-1 rounded-xl gap-1">
               <Link href="/" className="px-4 py-2 rounded-lg text-[11px] font-bold uppercase tracking-widest bg-white text-primary shadow-sm shadow-primary/10">
                   Dashboard
@@ -121,7 +151,7 @@ export default function DashboardPage() {
         </div>
       </header>
 
-      <div className="flex-1 flex flex-col px-12 py-6 gap-6 min-h-0">
+      <div className="flex-1 flex flex-col px-4 md:px-12 py-4 md:py-6 gap-6 min-h-0 overflow-y-auto md:overflow-y-hidden">
         {/* Seção Pregões do Dia */}
         <section className="shrink-0">
           <div className="flex items-center justify-between mb-2">
@@ -130,16 +160,16 @@ export default function DashboardPage() {
               Pregões do Dia
             </h3>
           </div>
-          <div className="flex gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {featuredItems.map((item: DashboardItem, idx: number) => (
-              <div key={idx} className={`flex-1 bg-white p-4 rounded-xl border-l-4 ${item.status === "EM ANDAMENTO" ? "border-primary" : "border-tertiary"} shadow-sm flex items-center justify-between`}>
-                <div className="flex items-center gap-4">
-                  <div className={`p-3 ${item.status === "EM ANDAMENTO" ? "bg-primary-container text-primary" : "bg-tertiary-container text-tertiary"} rounded-lg`}>
+              <div key={idx} className={`flex-1 bg-white p-4 rounded-xl border-l-4 ${item.status === "EM ANDAMENTO" ? "border-primary" : "border-tertiary"} shadow-sm flex flex-col xl:flex-row gap-4 xl:gap-0 items-start xl:items-center justify-between`}>
+                <div className="flex items-center gap-4 w-full xl:w-auto">
+                  <div className={`p-3 shrink-0 ${item.status === "EM ANDAMENTO" ? "bg-primary-container text-primary" : "bg-tertiary-container text-tertiary"} rounded-lg`}>
                     <span className="material-symbols-outlined text-2xl">
                       {item.status === "EM ANDAMENTO" ? "trending_up" : "gavel"}
                     </span>
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest">
                       PROCESSO EM DESTAQUE
                     </p>
@@ -155,11 +185,11 @@ export default function DashboardPage() {
                     )}
                   </div>
                 </div>
-                <div className="text-right">
+                <div className="text-left xl:text-right w-full xl:w-auto mt-2 xl:mt-0 pt-2 xl:pt-0 border-t xl:border-none border-surface-variant/30">
                   <span className={`px-3 py-1 ${item.status === "EM ANDAMENTO" ? "bg-primary-container text-on-primary-container" : "bg-tertiary-container text-on-tertiary-container"} rounded-full text-[9px] font-bold uppercase tracking-wider`}>
                     {item.status}
                   </span>
-                  <p className="text-[10px] text-outline mt-1 font-medium">
+                  <p className="text-[10px] text-outline mt-1.5 font-medium">
                     {item.status === "EM ANDAMENTO" ? "Sessão iniciada" : "Fase de julgamento"}
                   </p>
                 </div>
@@ -197,10 +227,10 @@ export default function DashboardPage() {
           {loading ? (
             <LoadingOverlay message="Sincronizando Dashboard..." />
           ) : (
-            <div className="grid grid-cols-4 grid-rows-4 gap-4 flex-1 min-h-0">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 auto-rows-fr gap-4 flex-1 min-h-0 md:overflow-y-hidden content-start">
               {items
                 .filter((i: DashboardItem) => !featuredItems.some(f => f.id === i.id))
-                .slice(0, 15)
+                .slice(0, maxGridItems)
                 .map((item: DashboardItem, idx: number) => (
                 <div
                   key={idx}
@@ -252,7 +282,7 @@ export default function DashboardPage() {
               <Link href="/all" className="bg-slate-200/40 border border-dashed border-slate-300 p-4 rounded-xl flex flex-col items-center justify-center text-slate-400 min-h-0 hover:bg-slate-200 transition-colors cursor-pointer">
                 <span className="material-symbols-outlined text-4xl mb-2 opacity-30">more_horiz</span>
                 <p className="text-[10px] font-bold uppercase tracking-widest opacity-60">
-                  {items.length > 15 ? "Ver mais" : "Aguardando Lote"}
+                  {items.filter((i: DashboardItem) => !featuredItems.some(f => f.id === i.id)).length > maxGridItems ? "Ver mais" : "Aguardando Lote"}
                 </p>
               </Link>
             </div>
@@ -261,8 +291,8 @@ export default function DashboardPage() {
       </div>
 
       {/* Footer Bar */}
-      <footer className="bg-white px-12 py-3 border-t border-surface-variant flex justify-between items-center text-[11px] font-medium text-outline shrink-0">
-        <div className="flex items-center gap-6">
+      <footer className="bg-white px-4 md:px-12 py-3 border-t border-surface-variant flex flex-col md:flex-row justify-between items-center text-[11px] font-medium text-outline shrink-0 gap-4">
+        <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
           <span className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-primary"></span> {stats.inProgress.toString().padStart(2, '0')} Em Andamento
           </span>
