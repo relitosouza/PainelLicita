@@ -201,7 +201,7 @@ export default function DashboardPage() {
                   </div>
                   <div className={`flex flex-col gap-0.5 border-t ${item.highlight === "primary" ? "border-primary/20" : item.highlight === "error" ? "border-error-container/20" : ""} pt-2 mt-auto`}>
                     {item.subStatus && (
-                      <div className="flex items-center gap-2 text-[11px] text-tertiary font-bold">
+                      <div className="flex items-center gap-2 text-[13px] text-black font-bold">
                         <span className="material-symbols-outlined text-[10px]">description</span>
                         <span>{item.subStatus}</span>
                       </div>
