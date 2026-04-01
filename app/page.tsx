@@ -263,14 +263,14 @@ export default function DashboardPage() {
                     </p>
                   </div>
                     <div className={`flex items-center justify-between border-t ${item.highlight === "primary" ? "border-primary/20" : item.highlight === "error" ? "border-error-container/20" : ""} pt-4 mt-auto`}>
-                      <div className={`flex items-center gap-1.5 text-[18px] font-black shrink-0`} style={{color:"#E53400"}}>
+                      <div className={`flex items-center gap-1.5 text-[18px] font-black shrink-0 text-primary`}>
                         <span className="material-symbols-outlined text-[16px]">
                           {item.highlight === "primary" ? "timer" : item.highlight === "error" ? "error" : "calendar_today"}
                         </span>
                         <span>{item.date}</span>
                       </div>
                       {item.subStatus && (
-                        <div className="flex items-center gap-1.5 text-[12px] text-tertiary font-bold overflow-hidden">
+                        <div className="flex items-center gap-1.5 text-[12px] text-black font-bold overflow-hidden">
                           <span className="material-symbols-outlined text-[14px] shrink-0">description</span>
                           <span className="truncate">{item.subStatus}</span>
                         </div>
