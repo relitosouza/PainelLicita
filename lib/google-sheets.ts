@@ -50,14 +50,16 @@ function parseCsv(csv: string): DashboardItem[] {
     const pe = row[0] || "";
     const pregoeiro = row[1] || "";
     const objeto = row[2] || "";
-    const abertura = row[3] || "";
-    const csvStatus = row[5] || ""; // Pega de F em vez de E
+    const dataAbertura = row[3] || "";
+    const horarioAbertura = row[4] || "";
+    const csvStatus = row[5] || ""; // Coluna F (Status principal para inferência)
+    const subStatusCsv = row[6] || ""; // Coluna G (Sub-status real)
 
     if (!pe || pe === "PE") continue;
 
     let inferredStatus: DashboardItem["status"] = "AGUARDANDO";
     let highlight: DashboardItem["highlight"] = undefined;
-    const fullStatus = (csvStatus + " " + abertura).toUpperCase();
+    const fullStatus = (csvStatus + " " + subStatusCsv).toUpperCase();
     
     if (fullStatus.includes("RECURSO")) {
       inferredStatus = "RECURSO";
@@ -81,7 +83,7 @@ function parseCsv(csv: string): DashboardItem[] {
       highlight = "primary";
     }
 
-    let subStatus = csvStatus;
+    let subStatus = subStatusCsv;
     // Se o subStatus for redundante com o status principal, limpamos para não poluir o card
     if (subStatus.toUpperCase() === inferredStatus || 
         (inferredStatus === "EM ANDAMENTO" && subStatus.toUpperCase().includes("ANDAMENTO")) ||
@@ -94,7 +96,7 @@ function parseCsv(csv: string): DashboardItem[] {
       status: inferredStatus,
       responsible: pregoeiro,
       object: objeto,
-      date: abertura || "A definir",
+      date: `${dataAbertura} ${horarioAbertura}`.trim() || "A definir",
       subStatus: subStatus || undefined,
       highlight: highlight,
     });
