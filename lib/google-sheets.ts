@@ -51,7 +51,7 @@ function parseCsv(csv: string): DashboardItem[] {
     const pregoeiro = row[1] || "";
     const objeto = row[2] || "";
     const abertura = row[3] || "";
-    const csvStatus = row[4] || "";
+    const csvStatus = row[5] || ""; // Pega de F em vez de E
 
     if (!pe || pe === "PE") continue;
 
