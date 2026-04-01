@@ -11,7 +11,8 @@ export default function DashboardPage() {
   const [items, setItems] = useState<DashboardItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [maxGridItems, setMaxGridItems] = useState(15);
+  const [currentPage, setCurrentPage] = useState(0);
+  const cardsPerPage = 12;
 
   const updateData = async () => {
     try {
@@ -57,42 +58,6 @@ export default function DashboardPage() {
     };
   }, []);
 
-  useEffect(() => {
-    // Modo TV/Monitor: Calcula quantos itens cabem exatamente na tela sem scroll
-    const calculateGridSize = () => {
-      if (typeof window === "undefined") return;
-      // Altura aproximada do Header(90) + Destaques(180) + Título/Infos(50) + Footer(50) + Espaçamentos(120)
-      const fixedHeight = 490;
-      const availableHeight = Math.max(0, window.innerHeight - fixedHeight);
-      
-      // Altura estimada de cada cartão na grid + gap de espaçamento
-      const rowHeight = 150; 
-      const rows = Math.max(1, Math.floor(availableHeight / rowHeight));
-      
-      const width = window.innerWidth;
-      let cols = 1;
-      // Acompanha as mesmas media queries configuradas no Tailwind CSS
-      if (width >= 1280) cols = 4; // xl:
-      else if (width >= 1024) cols = 3; // lg:
-      else if (width >= 640) cols = 2; // sm:
-      
-      // O total de cartões visíveis será (linhas * colunas) - 1 (para o botão de "Ver mais")
-      setMaxGridItems(Math.max(1, (rows * cols) - 1));
-    };
-
-    calculateGridSize(); // Executa na montagem
-    window.addEventListener("resize", calculateGridSize);
-    return () => window.removeEventListener("resize", calculateGridSize);
-  }, []);
-
-  const stats = {
-    inProgress: items.filter((i: DashboardItem) => i.status === "EM ANDAMENTO").length,
-    suspended: items.filter((i: DashboardItem) => i.status === "SUSPENSO").length,
-    analysis: items.filter((i: DashboardItem) => i.status === "EM ANÁLISE" || i.status === "DECISÃO").length,
-    waiting: items.filter((i: DashboardItem) => i.status === "AGUARDANDO").length,
-    waitingEdital: items.filter((i: DashboardItem) => i.status === "AGUARDANDO EDITAL").length,
-  };
-
   const isToday = (dateStr: string) => {
     const today = new Date();
     const day = String(today.getDate()).padStart(2, '0');
@@ -107,6 +72,31 @@ export default function DashboardPage() {
     i.status === "EM ANDAMENTO" || 
     isToday(i.date)
   ).slice(0, 4);
+
+  useEffect(() => {
+    const remainingItems = items.filter((i: DashboardItem) => !featuredItems.some(f => f.id === i.id));
+    if (remainingItems.length <= cardsPerPage) {
+      setCurrentPage(0);
+      return;
+    }
+
+    const pageInterval = setInterval(() => {
+      setCurrentPage((prev) => {
+        const totalPages = Math.ceil(remainingItems.length / cardsPerPage);
+        return (prev + 1) % totalPages;
+      });
+    }, 10000); // Troca de página a cada 10 segundos
+
+    return () => clearInterval(pageInterval);
+  }, [items, featuredItems]);
+
+  const stats = {
+    inProgress: items.filter((i: DashboardItem) => i.status === "EM ANDAMENTO").length,
+    suspended: items.filter((i: DashboardItem) => i.status === "SUSPENSO").length,
+    analysis: items.filter((i: DashboardItem) => i.status === "EM ANÁLISE" || i.status === "DECISÃO").length,
+    waiting: items.filter((i: DashboardItem) => i.status === "AGUARDANDO").length,
+    waitingEdital: items.filter((i: DashboardItem) => i.status === "AGUARDANDO EDITAL").length,
+  };
 
   return (
     <main className="w-full min-h-screen flex flex-col bg-surface overflow-x-hidden md:h-screen md:overflow-hidden select-none">
@@ -201,9 +191,15 @@ export default function DashboardPage() {
         {/* Grade Principal de Monitoramento */}
         <section className="flex-1 flex flex-col min-h-0">
           <div className="mb-4">
-            <h2 className="text-2xl font-black public-sans text-on-surface tracking-tight uppercase">
-              Painel de Monitoramento Geral
-            </h2>
+            <div className="flex items-center justify-between">
+              <h2 className="text-2xl font-black public-sans text-on-surface tracking-tight uppercase">
+                Painel de Monitoramento Geral
+              </h2>
+              <Link href="/all" className="flex items-center gap-2 bg-primary/10 hover:bg-primary/20 text-primary px-4 py-2 rounded-lg transition-colors group">
+                <span className="text-xs font-bold uppercase tracking-widest">Ver Todos ({items.length})</span>
+                <span className="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward_ios</span>
+              </Link>
+            </div>
             <div className="h-1 w-16 bg-primary mt-1"></div>
           </div>
           
@@ -227,10 +223,10 @@ export default function DashboardPage() {
           {loading ? (
             <LoadingOverlay message="Sincronizando Dashboard..." />
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 auto-rows-fr gap-4 flex-1 min-h-0 md:overflow-y-hidden content-start">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 auto-rows-fr gap-4 flex-1 min-h-0 md:overflow-y-hidden content-start relative">
               {items
                 .filter((i: DashboardItem) => !featuredItems.some(f => f.id === i.id))
-                .slice(0, maxGridItems)
+                .slice(currentPage * cardsPerPage, (currentPage + 1) * cardsPerPage)
                 .map((item: DashboardItem, idx: number) => (
                 <div
                   key={idx}
@@ -243,8 +239,8 @@ export default function DashboardPage() {
                   } p-4 rounded-xl flex flex-col justify-between hover:bg-surface-container-low transition-colors shadow-sm min-h-0`}
                 >
                   <div>
-                    <div className="flex justify-between items-start mb-1">
-                      <span className={`text-xl font-black ${item.highlight === "error" ? "text-error" : "text-primary"} public-sans leading-none`}>
+                    <div className="flex justify-between items-start mb-0.5">
+                      <span className={`text-lg font-black ${item.highlight === "error" ? "text-error" : "text-primary"} public-sans leading-none`}>
                         {item.id}
                       </span>
                       <span className={`px-2 py-0.5 ${
@@ -257,14 +253,14 @@ export default function DashboardPage() {
                         {item.status}
                       </span>
                     </div>
-                    <h5 className="text-[16px] font-bold uppercase tracking-tight text-black">{item.responsible}</h5>
-                    <p className="text-on-surface leading-tight mt-1 line-clamp-1 text-xl font-black">
+                    <h5 className="text-[14px] font-bold uppercase tracking-tight text-black truncate">{item.responsible}</h5>
+                    <p className="text-on-surface leading-tight mt-0.5 line-clamp-1 text-lg font-black">
                       {item.object}
                     </p>
                   </div>
-                    <div className={`flex items-center justify-between border-t ${item.highlight === "primary" ? "border-primary/20" : item.highlight === "error" ? "border-error-container/20" : ""} pt-4 mt-auto`}>
-                      <div className={`flex items-center gap-1.5 text-[18px] font-black shrink-0 text-primary`}>
-                        <span className="material-symbols-outlined text-[16px]">
+                    <div className={`flex items-center justify-between border-t ${item.highlight === "primary" ? "border-primary/20" : item.highlight === "error" ? "border-error-container/20" : ""} pt-2 mt-auto`}>
+                      <div className={`flex items-center gap-1.5 text-[16px] font-black shrink-0 text-primary`}>
+                        <span className="material-symbols-outlined text-[14px]">
                           {item.highlight === "primary" ? "timer" : item.highlight === "error" ? "error" : "calendar_today"}
                         </span>
                         <span>{item.date}</span>
@@ -278,13 +274,6 @@ export default function DashboardPage() {
                     </div>
                 </div>
               ))}
-              {/* 16th slot */}
-              <Link href="/all" className="bg-slate-200/40 border border-dashed border-slate-300 p-4 rounded-xl flex flex-col items-center justify-center text-slate-400 min-h-0 hover:bg-slate-200 transition-colors cursor-pointer">
-                <span className="material-symbols-outlined text-4xl mb-2 opacity-30">more_horiz</span>
-                <p className="text-[10px] font-bold uppercase tracking-widest opacity-60">
-                  {items.filter((i: DashboardItem) => !featuredItems.some(f => f.id === i.id)).length > maxGridItems ? "Ver mais" : "Aguardando Lote"}
-                </p>
-              </Link>
             </div>
           )}
         </section>

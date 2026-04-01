@@ -1,3 +1,4 @@
 {
+  "/all/page": "app/all/page.js",
   "/page": "app/page.js"
 }
