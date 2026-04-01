@@ -1,6 +1,6 @@
 export interface DashboardItem {
   id: string;
-  status: "AGUARDANDO" | "EM ANDAMENTO" | "SUSPENSO" | "EM ANÁLISE" | "DECISÃO" | "AGUARDANDO EDITAL";
+  status: "AGUARDANDO" | "EM ANDAMENTO" | "SUSPENSO" | "EM ANÁLISE" | "DECISÃO" | "AGUARDANDO EDITAL" | "RECURSO" | "ABERTURA" | "REABERTURA" | "AMOSTRA";
   responsible: string;
   object: string;
   date: string;
@@ -59,7 +59,15 @@ function parseCsv(csv: string): DashboardItem[] {
     let highlight: DashboardItem["highlight"] = undefined;
     const fullStatus = (csvStatus + " " + abertura).toUpperCase();
     
-    if (fullStatus.includes("EDITAL")) {
+    if (fullStatus.includes("RECURSO")) {
+      inferredStatus = "RECURSO";
+    } else if (fullStatus.includes("REABERTURA")) {
+      inferredStatus = "REABERTURA";
+    } else if (fullStatus.includes("ABERTURA")) {
+      inferredStatus = "ABERTURA";
+    } else if (fullStatus.includes("AMOSTRA")) {
+      inferredStatus = "AMOSTRA";
+    } else if (fullStatus.includes("EDITAL")) {
       inferredStatus = "AGUARDANDO EDITAL";
     } else if (fullStatus.includes("SUSPENSO")) {
       inferredStatus = "SUSPENSO";

@@ -96,6 +96,9 @@ export default function DashboardPage() {
     analysis: items.filter((i: DashboardItem) => i.status === "EM ANÁLISE" || i.status === "DECISÃO").length,
     waiting: items.filter((i: DashboardItem) => i.status === "AGUARDANDO").length,
     waitingEdital: items.filter((i: DashboardItem) => i.status === "AGUARDANDO EDITAL").length,
+    recurso: items.filter((i: DashboardItem) => i.status === "RECURSO").length,
+    abertura: items.filter((i: DashboardItem) => i.status === "ABERTURA" || i.status === "REABERTURA").length,
+    amostra: items.filter((i: DashboardItem) => i.status === "AMOSTRA").length,
   };
 
   return (
@@ -248,6 +251,9 @@ export default function DashboardPage() {
                         item.status === "SUSPENSO" ? "bg-error-container text-on-error-container" :
                         item.status === "EM ANÁLISE" || item.status === "DECISÃO" ? "bg-tertiary-container text-on-tertiary-container" :
                         item.status === "AGUARDANDO EDITAL" ? "bg-yellow-200 text-yellow-900 border border-yellow-300" :
+                        item.status === "RECURSO" ? "bg-orange-100 text-orange-800 border border-orange-200" :
+                        item.status === "ABERTURA" || item.status === "REABERTURA" ? "bg-blue-100 text-blue-800 border border-blue-200" :
+                        item.status === "AMOSTRA" ? "bg-purple-100 text-purple-800 border border-purple-200" :
                         "bg-secondary-container text-on-secondary-container"
                       } rounded-full text-[11px] font-bold shadow-sm`}>
                         {item.status}
@@ -295,7 +301,16 @@ export default function DashboardPage() {
             <span className="w-2.5 h-2.5 rounded-full bg-slate-300"></span> {stats.waiting.toString().padStart(2, '0')} Aguardando
           </span>
           <span className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-yellow-400"></span> {stats.waitingEdital.toString().padStart(2, '0')} Aguardando Edital
+            <span className="w-2.5 h-2.5 rounded-full bg-yellow-400"></span> {stats.waitingEdital.toString().padStart(2, '0')} Ag. Edital
+          </span>
+          <span className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-orange-500"></span> {stats.recurso.toString().padStart(2, '0')} Recurso
+          </span>
+          <span className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-blue-500"></span> {stats.abertura.toString().padStart(2, '0')} Abertura/Reab.
+          </span>
+          <span className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-purple-500"></span> {stats.amostra.toString().padStart(2, '0')} Amostra
           </span>
         </div>
         <div>
