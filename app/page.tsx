@@ -264,7 +264,7 @@ export default function DashboardPage() {
                       {item.object}
                     </p>
                   </div>
-                    <div className={`flex items-center justify-between border-t ${item.highlight === "primary" ? "border-primary/20" : item.highlight === "error" ? "border-error-container/20" : ""} pt-2 mt-auto`}>
+                    <div className={`flex items-center gap-3 border-t ${item.highlight === "primary" ? "border-primary/20" : item.highlight === "error" ? "border-error-container/20" : ""} pt-2 mt-auto`}>
                       <div className={`flex items-center gap-1.5 text-[16px] font-black shrink-0 text-primary`}>
                         <span className="material-symbols-outlined text-[14px]">
                           {item.highlight === "primary" ? "timer" : item.highlight === "error" ? "error" : "calendar_today"}
@@ -272,8 +272,7 @@ export default function DashboardPage() {
                         <span>{item.date}</span>
                       </div>
                       {item.subStatus && (
-                        <div className="flex items-center gap-1.5 text-[12px] text-black font-bold overflow-hidden">
-                          <span className="material-symbols-outlined text-[14px] shrink-0">description</span>
+                        <div className="flex items-center text-[13px] text-black font-black overflow-hidden bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
                           <span className="truncate">{item.subStatus}</span>
                         </div>
                       )}
